@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +12,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { BookComponent } from './book/book.component';
 import { MemberComponent } from './member/member.component';
 import { ResearchComponent } from './research/research.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
@@ -23,10 +27,14 @@ import { ResearchComponent } from './research/research.component';
     RegistrationComponent,
     BookComponent,
     MemberComponent,
-    ResearchComponent
+    ResearchComponent,
+    PagenotfoundComponent,
+    MessageComponent
+    // HttpClientModule
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
