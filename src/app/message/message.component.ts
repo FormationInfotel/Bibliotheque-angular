@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../service/message.service';
 
 @Component({
   selector: 'app-message',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
- Class = 'alert-success';
- message = '';
+  alertClass = 'alert-dismissible fade show';
+  message = '';
+  isDisplayed = false;
 
-  constructor() { }
+
+  constructor(private msService: MessageService) {  }
 
   ngOnInit() {
+    this.alertClass = this.msService.alertClass + this.message;
+    this.message = this.msService.message;
+    this.isDisplayed = this.msService.isDisplayed;
+    console.log('aaaaa' + this.alertClass, this.message, this.isDisplayed);
   }
 
 }

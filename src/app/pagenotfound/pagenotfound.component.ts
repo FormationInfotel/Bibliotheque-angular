@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../service/message.service';
 
 @Component({
   selector: 'app-pagenotfound',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagenotfoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private msService: MessageService) { }
 
   ngOnInit() {
+    this.msService.displayErrorMessage('page not found');
   }
 
 }

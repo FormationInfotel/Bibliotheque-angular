@@ -15,6 +15,7 @@ import { ResearchComponent } from './research/research.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MessageComponent } from './message/message.component';
+import { MessageService } from './service/message.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { MessageComponent } from './message/message.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
