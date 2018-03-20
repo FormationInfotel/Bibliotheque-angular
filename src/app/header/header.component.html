@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">Bibliothèque</a>
+	<a class="navbar-brand" href="/accueil">Bibliothèque</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarsExample05" aria-controls="navbarsExample05"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -9,17 +9,17 @@
 	<div class="collapse navbar-collapse" id="navbarsExample05">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link"
-				href="/ProjetFinal/">Accueil <span class="sr-only">(current)</span>
+				href="/accueil">Accueil<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item active"><a class="nav-link"
-				href="research">Recherche <span class="sr-only">(current)</span>
+				href="/research">Recherche<span class="sr-only">(current)</span>
 			</a></li>
 
 			<li class="nav-item active"><a class="nav-link"
-				href="login">Espace Membre <span class="sr-only">(current)</span>
+				href="/login">Espace Membre<span class="sr-only">(current)</span>
 			</a></li>
 		</ul>
-		<form class="form-inline" method="POST" action="research">
+		<form class="form-inline" method="POST" action="${context}/recherche">
 			<input class="form-control mr-sm-2" type="search"
 				placeholder="Nom de livre" aria-label="Search" id="txboxRecherche"
 				name="txboxRecherche">

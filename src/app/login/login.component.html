@@ -3,7 +3,8 @@
 		<h1 class="display-4">Connexion</h1>
 		<hr>
 		<br>
-		<form method="POST" action="">
+<!-- 		<form method="POST" action="${context}/login"> -->
+<form>
 			<br>
 			<div>
 				<label class="form-check-label" for="defaultCheck1">Se
@@ -12,17 +13,17 @@
 			<br>
 
 			<div>
-				<input class="form-control" id="txtboxEmail" name="txtboxEmail"
-					type="text" placeholder="Email">
+<!-- 				<input class="form-control" id="txtboxEmail" name="txtboxEmail"	type="text" placeholder="Email"> -->
+				 <input id="txtboxEmail" type="text" class="form-control" name="email" [(ngModel)]='identifiants.email' placeholder="Email">
 			</div>
 			<div>
-				<input class="form-control" id="txtboxPswd" name="txtboxPswd"
-					type="text" placeholder="Mot de Passe">
+<!-- 				<input class="form-control" id="txtboxPswd" name="txtboxPswd" type="text" placeholder="Mot de Passe"> -->
+				 <input id="txtboxPswd" type="password" class="form-control" name="password" [(ngModel)]='identifiants.password'  placeholder="Password">
 			</div>
 			<br> <br>
 			<div>
-				<button type="submit" id="btnConnexion" class="btn btn-primary">Se
-					connecter</button>
+<!-- 				<button type="submit" id="btnConnexion" class="btn btn-primary">Seconnecter</button> -->
+				<button (click)="login()" class="btn btn-default">Connexion</button>
 			</div>
 		</form>
 	</div>
