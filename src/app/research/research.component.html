@@ -1,3 +1,24 @@
-<p>
-  research works!
-</p>
+<div class="jumbotron jumbotron-fluid" id="criteres">
+	<div class="container">
+		<h1 class="display-4">Recherche</h1>
+		<hr>
+		<br>
+		<form method="POST" action="${context}/recherche">
+			<br>
+			<div>
+				<label class="form-check-label" for="defaultCheck1">Pour
+					faire votre recherche :</label>
+			</div>
+			<br>
+
+			<div>
+				<input class="form-control" id="txboxRecherche"
+					name="txboxRecherche" type="text" placeholder="Recherche">
+			</div>
+			<br> <br>
+			<div>
+				<button type="submit" id="btnRecherche" class="btn btn-primary">Rechercher</button>
+			</div>
+		</form>
+	</div>
+</div>
