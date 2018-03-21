@@ -3,7 +3,8 @@
 		<h1 class="display-4">Recherche</h1>
 		<hr>
 		<br>
-		<form method="POST" action="${context}/recherche">
+		<form>
+			<!-- method="POST" action="${context}/recherche"> -->
 			<br>
 			<div>
 				<label class="form-check-label" for="defaultCheck1">Pour
@@ -13,11 +14,13 @@
 
 			<div>
 				<input class="form-control" id="txboxRecherche"
-					name="txboxRecherche" type="text" placeholder="Recherche">
+					name="txboxRecherche" [(ngModel)]='keyword.keyword' type="text"
+					placeholder="Recherche">
 			</div>
 			<br> <br>
 			<div>
-				<button type="submit" id="btnRecherche" class="btn btn-primary">Rechercher</button>
+				<!-- 				<button type="submit" id="btnRecherche" class="btn btn-primary">Rechercher</button> -->
+				<button (click)="research()" class="btn btn-default">Rechercher</button>
 			</div>
 		</form>
 	</div>

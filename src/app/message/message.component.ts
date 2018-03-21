@@ -1,25 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../service/message.service';
+import {Component, OnInit, Type, Injectable} from '@angular/core';
+import {DatashareService} from '../service/datashare.service';
 
 @Component({
-  selector: 'app-message',
+  selector: 'app-messages',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
+@Injectable()
 export class MessageComponent implements OnInit {
 
-  alertClass = 'alert-dismissible fade show';
+  alertClass = ' alert-dismissible show';
   message = '';
   isDisplayed = false;
 
-
-  constructor(private msService: MessageService) {  }
+  constructor(private dss: DatashareService) {}
 
   ngOnInit() {
-    this.alertClass = this.msService.alertClass + this.message;
-    this.message = this.msService.message;
-    this.isDisplayed = this.msService.isDisplayed;
-    console.log('aaaaa' + this.alertClass, this.message, this.isDisplayed);
+
+    this.alertClass = this.dss.alertMessageClass + this.alertClass;
+    this.message = this.dss.message;
+    this.isDisplayed = this.dss.isMessageDisplayed;
+    console.log(this.isDisplayed);
+    console.log(this.message);
+    console.log(this.alertClass);
+
   }
 
 }

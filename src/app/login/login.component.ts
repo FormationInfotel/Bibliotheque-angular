@@ -5,6 +5,7 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
       }
 
     );

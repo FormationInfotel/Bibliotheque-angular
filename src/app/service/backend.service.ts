@@ -1,10 +1,14 @@
+
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {IdentifiantsVM} from '../models/identifiantsVM';
 import {HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {catchError, retry} from 'rxjs/operators';
+import {IdentifiantsVM} from '../models/identifiantsVM';
+import {ResearchVM} from '../models/researchVM';
+import {BookVM} from '../models/bookVM';
+import {MessageService} from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,15 +19,22 @@ const httpOptions = {
 @Injectable()
 export class BackendService {
 
-
-
-
-  constructor(private http: HttpClient) {}
-
+  constructor(private http: HttpClient, private msService: MessageService) {}
 
   Login(identifiantsVm: IdentifiantsVM): Observable<any> {
     console.log(identifiantsVm);
     return this.http.post<IdentifiantsVM>('http://localhost:8080/ProjetFinal/login', identifiantsVm, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+
+  Research(researchVM: ResearchVM): Observable<any> {
+    console.log(researchVM + 'researchVM');
+    console.log('keyword' + researchVM.keyword);
+    return this.http.post<BookVM>('http://localhost:8080/ProjetFinal/research/' + researchVM.keyword, httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)
@@ -50,11 +61,10 @@ export class BackendService {
     if (data.success) {
       // resquest suceed in server
       console.log(data.message);
-      // messageService.displaySucessfulMessage(data.message);
+       this.msService.displaySuccessfullMessage(data.message);
     } else {
       console.error(data.message);
-      // messageService.displayFailureMessage(data.message);
+       this.msService.displayErrorMessage(data.message);
     }
-
   }
 }
