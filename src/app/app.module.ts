@@ -22,6 +22,7 @@ import {MentionslegalesComponent} from './mentionslegales/mentionslegales.compon
 import {BackendService} from './service/backend.service';
 import {MessageService} from './service/message.service';
 import {DatashareService} from './service/datashare.service';
+import {CommonModule} from '@angular/common';
 
 import {MessageDirective} from './directives/message.directive';
 
@@ -46,7 +47,7 @@ import {MessageDirective} from './directives/message.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    CommonModule,
 
     FormsModule,
     HttpClientModule
