@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {IdentifiantsVM} from '../models/identifiantsVM';
+import { LibraryVM } from '../models/libraryVM';
+import {MemberVM} from '../models/memberVM';
 import {HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 import {catchError, retry} from 'rxjs/operators';
@@ -24,6 +26,30 @@ export class BackendService {
   Login(identifiantsVm: IdentifiantsVM): Observable<any> {
     console.log(identifiantsVm);
     return this.http.post<IdentifiantsVM>('http://localhost:8080/ProjetFinal/login', identifiantsVm, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getMember(): Observable<any> {
+    return this.http.get<MemberVM>('http://localhost:8080/ProjetFinal/member/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getLibrary(): Observable<any> {
+    return this.http.get<LibraryVM[]>('http://localhost:8080/ProjetFinal/library/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  newMember(memberVM: MemberVM): Observable<any> {
+    return this.http.put<MemberVM>('http://localhost:8080/ProjetFinal/member/add', memberVM, httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

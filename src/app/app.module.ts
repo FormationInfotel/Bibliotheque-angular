@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
+import {HttpClientModule} from '@angular/common/http';
 
 
 import {AppComponent} from './app.component';
@@ -17,9 +17,10 @@ import {AppRoutingModule} from './/app-routing.module';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {MessageComponent} from './message/message.component';
 
-import { BackendService } from './service/backend.service';
-import { MessageService } from './service/message.service';
-import { DatashareService } from './service/datashare.service';
+import {BackendService} from './service/backend.service';
+import {MessageService} from './service/message.service';
+import {DatashareService} from './service/datashare.service';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { DatashareService } from './service/datashare.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    CommonModule,
 
     FormsModule,
     HttpClientModule
