@@ -10,7 +10,6 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
-import {BookComponent} from './book/book.component';
 import {MemberComponent} from './member/member.component';
 import {ResearchComponent} from './research/research.component';
 import {AppRoutingModule} from './/app-routing.module';
@@ -25,6 +24,8 @@ import {DatashareService} from './service/datashare.service';
 import {CommonModule} from '@angular/common';
 
 import {MessageDirective} from './directives/message.directive';
+import {BookcrudComponent} from './bookcrud/bookcrud.component';
+import { CreatelivreComponent } from './createlivre/createlivre.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +35,15 @@ import {MessageDirective} from './directives/message.directive';
     FooterComponent,
     LoginComponent,
     RegistrationComponent,
-    BookComponent,
     MemberComponent,
     ResearchComponent,
     PagenotfoundComponent,
     MessageComponent,
     ResultatComponent,
     MentionslegalesComponent,
-    MessageDirective
+    MessageDirective,
+    BookcrudComponent,
+    CreatelivreComponent
     // HttpClientModule
   ],
   imports: [

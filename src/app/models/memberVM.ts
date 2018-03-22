@@ -7,6 +7,5 @@ export interface MemberVM {
   member_password: string;
   isMemberAdmin: boolean;
   member_LibraryId: number;
-
 }
 

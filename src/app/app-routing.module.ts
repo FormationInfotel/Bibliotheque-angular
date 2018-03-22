@@ -11,6 +11,8 @@ import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {ResultatComponent} from './resultat/resultat.component';
 import {MentionslegalesComponent} from './mentionslegales/mentionslegales.component';
 import {MessageComponent} from './message/message.component';
+import {BookcrudComponent} from './bookcrud/bookcrud.component';
+import {CreatelivreComponent} from './createlivre/createlivre.component';
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'research', component: ResearchComponent},
   {path: 'resultat', component: ResultatComponent},
+  {path: 'book', component: BookcrudComponent},
+  {path: 'createbook', component: CreatelivreComponent},
   {path: 'mentionslegales', component: MentionslegalesComponent},
   {path: 'messages', component: MessageComponent, outlet: 'messages'},
   {path: '**', component: PagenotfoundComponent}
