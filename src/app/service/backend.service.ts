@@ -1,8 +1,11 @@
 
+import {categoryVM} from '../models/CategoryVM';
+import {EditorVM} from '../models/EditorVM';
+import {AuthorVM} from '../models/authorVM';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import { LibraryVM } from '../models/libraryVM';
+import {LibraryVM} from '../models/libraryVM';
 import {MemberVM} from '../models/memberVM';
 import {HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
@@ -57,6 +60,46 @@ export class BackendService {
       );
   }
 
+  addBooks(bookVM: BookVM): Observable<any> {
+    return this.http.put<BookVM[]>('http://localhost:8080/ProjetFinal/book/add', bookVM, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getBooks(): Observable<any> {
+    return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/book/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getAuthor(): Observable<any> {
+    return this.http.get<AuthorVM>('http://localhost:8080/ProjetFinal/author/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getEditor(): Observable<any> {
+    return this.http.get<EditorVM>('http://localhost:8080/ProjetFinal/editor/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getCategory(): Observable<any> {
+    return this.http.get<categoryVM>('http://localhost:8080/ProjetFinal/category/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
   newMember(memberVM: MemberVM): Observable<any> {
     return this.http.put<MemberVM>('http://localhost:8080/ProjetFinal/member/add', memberVM, httpOptions)
       .pipe(
@@ -95,10 +138,10 @@ export class BackendService {
     if (data.isSucces) {
       // resquest suceed in server
       console.log(data.message);
-       this.msService.displaySuccessfullMessage(data.message);
+      this.msService.displaySuccessfullMessage(data.message);
     } else {
       console.error(data.message);
-       this.msService.displayErrorMessage(data.message);
+      this.msService.displayErrorMessage(data.message);
     }
   }
 }

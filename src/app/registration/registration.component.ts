@@ -7,6 +7,8 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {forEachChild} from 'typescript';
+import {NgSelectOption} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -33,7 +35,7 @@ export class RegistrationComponent implements OnInit {
   };
 
 
-  listeLibrary: LibraryVM[];
+  listeLibrary: any;
 
   constructor(private backService: BackendService,
     private messageService: MessageService,
@@ -41,9 +43,9 @@ export class RegistrationComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.listeLibrary = this.getLibraries();
-    console.log('listeLibrary');
-    console.log(this.listeLibrary);
+    console.log('getLibrary');
+    this.getLibraries();
+    console.log(this.getLibraries());
   }
 
 
@@ -52,36 +54,27 @@ export class RegistrationComponent implements OnInit {
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log(data.payload);
-          // cache the logged member in datashare service
-          // this.dss.loggedMember = data.payload;
-          // navigate to home and display navbar or the hidden tabs
           this.router.navigate(['/accueil']);
-
         }
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
       }
 
     );
   }
 
-   getLibraries(): any {
+  getLibraries(): any {
     this.backService.getLibrary().subscribe(
       data => {
-        console.log('data');
-        console.log(data);
         this.backService.handleData(data);
         if (data.payload) {
           console.log('data payload');
-          console.log(data.payload);
-          return data.payload;
+          this.listeLibrary = data.payload;
+          return this.listeLibrary;
         }
       },
       error => {
-        console.log('error !!!!!');
         console.error(error.message);
         // messageService.displayFailureMessage(error.message);
         return null;

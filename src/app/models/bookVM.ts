@@ -5,7 +5,7 @@ ISBN: number;
 book_title: string;
 book_description: string;
 book_price: number;
-publication_date: DatePipe;
+publication_date: string;
 image_path: string;
 popular_book: boolean;
 author_lastname: string;

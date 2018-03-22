@@ -22,9 +22,11 @@
 						placeholder="Address">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Member's Library</label> <select
-						*ngFor="let library of listeLibrary">
-						<option value="{{library.library_name}}">{{library.library_name}}</option>
+					<label class="control-label col-lg-2">Member's Library</label>
+					<!--  -->
+					<select name="library.library_code" [(ngModel)]='memberVM.member_LibraryId'>
+						<option *ngFor="let library of listeLibrary"
+							[ngValue]="library.library_code">{{library.library_name}}</option>
 					</select>
 
 				</div>
@@ -54,7 +56,7 @@
 						placeholder="Password">
 				</div>
 				<div class="form-group">
-					<button (click)="newMember()" class="btn btn-default">Register</button>
+					<button (click)="newMember()" class="btn btn-primary">Register</button>
 				</div>
 			</fieldset>
 		</form>

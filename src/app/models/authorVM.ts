@@ -1,6 +1,5 @@
-import { DatePipe } from '@angular/common';
 export interface AuthorVM {
-
-author_lastname: string;
-author_firstname: string;
+  author_id: number;
+  author_lastname: String;
+  author_firstname: String;
 }
