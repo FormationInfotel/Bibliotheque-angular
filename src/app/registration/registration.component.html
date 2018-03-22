@@ -22,9 +22,8 @@
 						placeholder="Address">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Member's Library</label>
-
-					<select *ngFor="let library of listeLibrary">
+					<label class="control-label col-lg-2">Member's Library</label> <select
+						*ngFor="let library of listeLibrary">
 						<option value="{{library.library_name}}">{{library.library_name}}</option>
 					</select>
 

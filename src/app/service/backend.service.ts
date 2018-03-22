@@ -32,6 +32,15 @@ export class BackendService {
       );
   }
 
+
+    getRecommendedBooks(): Observable<any> {
+    return this.http.get<BookVM>('http://localhost:8080/ProjetFinal/recommendedbooks', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
   getMember(): Observable<any> {
     return this.http.get<MemberVM>('http://localhost:8080/ProjetFinal/member/get', httpOptions)
       .pipe(
@@ -83,7 +92,7 @@ export class BackendService {
   }
 
   handleData(data: any) {
-    if (data.success) {
+    if (data.isSucces) {
       // resquest suceed in server
       console.log(data.message);
        this.msService.displaySuccessfullMessage(data.message);

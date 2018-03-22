@@ -8,6 +8,8 @@ book_price: number;
 publication_date: DatePipe;
 image_path: string;
 popular_book: boolean;
+author_lastname: string;
+author_firstname: string;
 
 book_authorId: number;
 book_editorId: number;

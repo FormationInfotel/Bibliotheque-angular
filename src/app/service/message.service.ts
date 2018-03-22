@@ -38,11 +38,10 @@ export class MessageService {
     console.log('trying to display message');
     console.log(this.dss.messageViewContainerRef);
 
-    let viewContainerRef = this.dss.messageViewContainerRef;
-    if (this.instantiatedComponent) {
+   const viewContainerRef = this.dss.messageViewContainerRef;
+    if (this.instantiatedComponent)
       viewContainerRef.remove();
-    }
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(MessageComponent);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MessageComponent);
     this.instantiatedComponent = viewContainerRef.createComponent(componentFactory);
 
     // this.router.navigate([{ outlets: { messages: [ 'messages' ] }}]);
