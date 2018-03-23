@@ -1,0 +1,46 @@
+<div class="jumbotron text-center">
+	<div class="container">
+		<div class="jumbotron-heading">
+			<h1 class="display-4">Gestion des emprunts</h1>
+			<br>
+			<!-- 
+				<button class="btn btn-primary" type="submit" (click)="getBorrows()">tt</button>
+			</form> -->
+		</div>
+	</div>
+</div>
+<div class="container">
+	<form>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date d'emprunt</th>
+					<th>Date de retour</th>
+					<th>Prenom</th>
+					<th>Nom</th>
+					<th>Livres empruntés</th>
+					<th></th>
+					<th>Valider l'emprunt</th>
+				</tr>
+			</thead>
+			
+			<tr *ngFor="let borrow of listeBorrow">
+				<td>{{borrow.borrow_date}}</td>
+				<td>{{borrow.return_date}}</td>
+				<td>{{borrow.member_firstname}}</td>
+				<td>{{borrow.member_lastname}}</td>
+				<!-- 				<td>{{borrow.borrow_listCopyId}}</td> -->
+				
+				<select name="livre.book_title" [(ngModel)]='bookVM.book_authorId'>
+					<option *ngFor="let livre of listeLivres" [ngValue]="livre.book_title">{{livre.book_title}}</option>
+				</select>
+				<td>{{borrow.isValidated}}</td>
+
+				<td><input id="checkBox" type="checkbox"></td>
+
+
+			</tr>
+		</table>
+		<button class="btn btn-primary" type="submit" value="Submit">Valider</button>
+	</form>
+</div>

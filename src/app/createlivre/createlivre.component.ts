@@ -97,7 +97,7 @@ export class CreatelivreComponent implements OnInit {
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+         this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );
@@ -115,7 +115,7 @@ export class CreatelivreComponent implements OnInit {
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+          this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );
@@ -133,7 +133,7 @@ export class CreatelivreComponent implements OnInit {
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+         this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );

@@ -44,6 +44,19 @@ export class BackendService {
       );
   }
 
+
+  getBooksByKeyword(keyword: any): Observable<any> {
+     console.log('keyword');
+    console.log(keyword);
+    return this.http.post<any>('http://localhost:8080/ProjetFinal/resultat', keyword, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+
+
   getMember(): Observable<any> {
     return this.http.get<MemberVM>('http://localhost:8080/ProjetFinal/member/get', httpOptions)
       .pipe(
@@ -86,6 +99,13 @@ export class BackendService {
 
   getBookCopies(): Observable<any> {
     return this.http.get<BookCopyVM[]>('http://localhost:8080/ProjetFinal/bookcopy/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+  getBorrows(): Observable<any> {
+    return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/borrow/get', httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

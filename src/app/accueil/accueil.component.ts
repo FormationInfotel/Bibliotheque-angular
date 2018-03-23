@@ -1,4 +1,3 @@
-import {AuthorVM} from '../models/authorVM';
 import {Component, OnInit} from '@angular/core';
 import {BookVM} from '../models/bookVM';
 import {BackendService} from '../service/backend.service';
@@ -49,7 +48,6 @@ export class AccueilComponent implements OnInit {
   ngOnInit() {
 
     this.listeLivresRecom = this.getRecommendedBooks();
-    // this.auteur
     console.log('listeLivresRecom');
     console.log(this.listeLivresRecom);
   }

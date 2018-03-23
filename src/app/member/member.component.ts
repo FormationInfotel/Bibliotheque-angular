@@ -24,34 +24,38 @@ export class MemberComponent implements OnInit {
     member_LibraryId: null
   };
 
+  listeMembers: any;
+
   constructor(private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
     private router: Router) {}
 
   ngOnInit() {
-    this.getMember();
+    this.getMembers();
   }
 
+//    createMember() {
+//    this.router.navigate(['/createmember']);
+//  }
 
-   getMember() {
-    this.backService.getMember().subscribe(
+
+     getMembers(): any {
+    this.backService.getMembers().subscribe(
       data => {
         this.backService.handleData(data);
         if (data.payload) {
           console.log(data.payload);
-          // cache the logged member in datashare service
-          // this.dss.loggedMember = data.payload;
-          // navigate to home and display navbar or the hidden tabs
-          // this.router.navigate(['/member']);
-
+          this.listeMembers = data.payload;
+          return this.listeMembers;
         }
       },
       error => {
+        console.log('error !!!!!');
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+         this.messageService.displayErrorMessage(error.message);
+        return null;
       }
-
     );
   }
 

@@ -19,7 +19,6 @@ export class MessageService {
     console.log(this.dss.isMessageDisplayed);
     console.log(this.dss.alertMessageClass);
     console.log(this.dss.message);
-
   }
 
   displaySuccessfullMessage(message: string) {

@@ -20,7 +20,7 @@
 			<br> <br>
 			<div>
 				<!-- 				<button type="submit" id="btnRecherche" class="btn btn-primary">Rechercher</button> -->
-				<button (click)="research()" class="btn btn-default">Rechercher</button>
+				<button [routerLink]="['/resultat']" [queryParams]="{ keyword: keyword.keyword }" class="btn btn-default">Rechercher</button>
 			</div>
 		</form>
 	</div>

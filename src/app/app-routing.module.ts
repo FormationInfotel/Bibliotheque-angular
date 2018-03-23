@@ -15,7 +15,7 @@ import {BookcrudComponent} from './bookcrud/bookcrud.component';
 import {CreatelivreComponent} from './createlivre/createlivre.component';
 import {BooksComponent} from './books/books.component';
 import {BookdetailsComponent} from './bookdetails/bookdetails.component';
-
+import {BorrowvalidationComponent} from './borrowvalidation/borrowvalidation.component';
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
