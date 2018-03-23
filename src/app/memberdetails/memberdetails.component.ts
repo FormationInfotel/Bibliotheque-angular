@@ -25,6 +25,7 @@ export class MemberdetailsComponent implements OnInit {
     member_password: null,
     isMemberAdmin: null,
     member_LibraryId: null,
+    library_name: null
   };
 
   id: any;
