@@ -3,9 +3,9 @@ import {Component, OnInit} from '@angular/core';
 import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 import {CommonModule} from '@angular/common';
-
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-memberdetails',
@@ -27,44 +27,42 @@ export class MemberdetailsComponent implements OnInit {
     member_LibraryId: null,
   };
 
-  listeMembres: any;
   id: any;
-  sub: any;
+  listeMembres: null;
+  sub: Subscription;
+
+
 
   constructor(
     private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {}
+    private activatedRoute: ActivatedRoute) {
 
-  ngOnInit() {
-
-    this.sub = this.activatedRoute
+   this.sub = this.activatedRoute
       .queryParams
       .subscribe(params => {
-        console.log(params['id']);
-        this.id = +params['id'];
+        console.log(typeof (+params.id));
+        this.id = + params.id;
+        console.log(this.id);
       });
-    console.log('ID=====apres======');
-    console.log(this.id);
 
-    this.listeMembres = this.getMembre();
-    console.log('listeMembres');
-    console.log(this.listeMembres);
+    this.memberVM = this.getMembre(this.id);
   }
 
-  getMembre(): any {
-    this.backService.getMembre().subscribe(
+  ngOnInit() {}
+
+
+
+  getMembre(id): any {
+    this.backService.getMembre(id).subscribe(
       data => {
-        console.log('data');
-        console.log(data);
         this.backService.handleData(data);
         if (data.payload) {
-          this.listeMembres = data.payload;
-          console.log('data payload');
           console.log(data.payload);
-          return data.payload;
+          this.listeMembres = data.payload;
+          return this.listeMembres;
         }
       },
       error => {

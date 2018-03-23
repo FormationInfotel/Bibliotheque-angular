@@ -44,13 +44,6 @@ export class BackendService {
       );
   }
 
-  getMembre(): Observable<any> {
-    return this.http.get<MemberVM>('http://localhost:8080/ProjetFinal/member/get', httpOptions)
-      .pipe(
-      retry(3),
-      catchError(this.handleError)
-      );
-  }
 
 
   getBooksByKeyword(keyword: any): Observable<any> {
@@ -104,6 +97,15 @@ export class BackendService {
       catchError(this.handleError)
       );
   }
+
+    getMembre(id): Observable<any> {
+    return this.http.post<MemberVM>('http://localhost:8080/ProjetFinal/member/getOne', id, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
 
   getBookCopies(): Observable<any> {
     return this.http.get<BookCopyVM[]>('http://localhost:8080/ProjetFinal/bookcopy/get', httpOptions)
