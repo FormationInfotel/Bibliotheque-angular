@@ -15,7 +15,28 @@ import { Subscription } from 'rxjs';
 })
 
 
-export class BookdetailsComponent implements OnInit {
+
+  bookVM: BookVM = {
+    isbn: null,
+    book_title: '',
+    book_description: '',
+    book_price: null,
+    publication_date: '',
+    image_path: '',
+    popular_book: false,
+    author_lastname: '',
+    author_firstname: '',
+    editor_name: null,
+    category_name: null,
+
+    book_authorId: null,
+    book_editorId: null,
+    book_categoryId: null,
+    listCopy: null
+  };
+
+  listResult: null;
+
   sub: Subscription;
 
   memberVM: MemberVM = {
@@ -44,11 +65,12 @@ export class BookdetailsComponent implements OnInit {
     this.sub = this.route
       .queryParams
       .subscribe(params => {
-        console.log(params['id']);
-        this.id = +params['id'];
+        console.log(typeof (+params.id));
+        this.id = +params.id;
+        console.log(this.id);
       });
-    console.log('ID=====apres======');
-    console.log(this.id);
+
+    this.bookVM = this.getBookById(this.id);
   }
 
   ngOnInit() {
@@ -58,23 +80,19 @@ export class BookdetailsComponent implements OnInit {
     console.log(this.listeMembres);
   }
 
-  getMembre(): any {
-    this.backService.getMembre().subscribe(
+  getBookById(id): any {
+    this.backService.getBookById(id).subscribe(
       data => {
-        console.log('data');
-        console.log(data);
         this.backService.handleData(data);
         if (data.payload) {
-          this.listeMembres = data.payload;
-          console.log('data payload');
           console.log(data.payload);
-          return data.payload;
+          this.listResult = data.payload;
+          return this.listResult;
         }
       },
       error => {
-        console.log('error !!!!!');
         console.error(error.message);
-        this.messageService.displayErrorMessage(error.message);
+        return null;
       }
     );
   }

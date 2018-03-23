@@ -97,6 +97,14 @@ export class BackendService {
       );
   }
 
+  getBookById(id): Observable<any> {
+    return this.http.post<BookVM>('http://localhost:8080/ProjetFinal/book/getOne', id, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
   getBookCopies(): Observable<any> {
     return this.http.get<BookCopyVM[]>('http://localhost:8080/ProjetFinal/bookcopy/get', httpOptions)
       .pipe(
