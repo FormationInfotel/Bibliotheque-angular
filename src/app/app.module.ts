@@ -26,6 +26,8 @@ import {CommonModule} from '@angular/common';
 import {MessageDirective} from './directives/message.directive';
 import {BookcrudComponent} from './bookcrud/bookcrud.component';
 import { CreatelivreComponent } from './createlivre/createlivre.component';
+import { BooksComponent } from './books/books.component';
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { CreatelivreComponent } from './createlivre/createlivre.component';
     MentionslegalesComponent,
     MessageDirective,
     BookcrudComponent,
-    CreatelivreComponent
+    CreatelivreComponent,
+    BooksComponent,
+    BookdetailsComponent
     // HttpClientModule
   ],
   imports: [

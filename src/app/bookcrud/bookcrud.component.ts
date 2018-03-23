@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {forEachChild} from 'typescript';
 import {NgSelectOption} from '@angular/forms';
@@ -13,20 +13,26 @@ import {NgSelectOption} from '@angular/forms';
   templateUrl: './bookcrud.component.html',
   styleUrls: ['./bookcrud.component.css']
 })
+
 export class BookcrudComponent implements OnInit {
 
   bookVM: BookVM = {
-    ISBN: null,
+    isbn: null,
     book_title: '',
     book_description: '',
     book_price: null,
     publication_date: '',
     image_path: '',
     popular_book: false,
+    author_lastname: '',
+    author_firstname: '',
+    editor_name: null,
+    category_name: null,
 
     book_authorId: null,
     book_editorId: null,
-    book_categoryId: null
+    book_categoryId: null,
+    listCopy: null
   };
 
   listeBook: any;
@@ -35,7 +41,7 @@ export class BookcrudComponent implements OnInit {
   constructor(private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
-    private router: Router) {}
+    private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.getBooks();
@@ -43,6 +49,12 @@ export class BookcrudComponent implements OnInit {
 
   createBook() {
     this.router.navigate(['/createbook']);
+  }
+
+  getDetails(id) {
+    console.log('ID =========avant=========');
+    console.log(id);
+    this.router.navigate(['/bookdetails', {queryParams: {id: id}}]);
   }
 
   getBooks(): any {

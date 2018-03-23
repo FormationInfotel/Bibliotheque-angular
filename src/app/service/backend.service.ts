@@ -1,4 +1,4 @@
-
+import {BookCopyVM} from '../models/BookCopyVM';
 import {categoryVM} from '../models/CategoryVM';
 import {EditorVM} from '../models/EditorVM';
 import {AuthorVM} from '../models/authorVM';
@@ -36,7 +36,7 @@ export class BackendService {
   }
 
 
-    getRecommendedBooks(): Observable<any> {
+  getRecommendedBooks(): Observable<any> {
     return this.http.get<BookVM>('http://localhost:8080/ProjetFinal/recommendedbooks', httpOptions)
       .pipe(
       retry(3),
@@ -70,6 +70,14 @@ export class BackendService {
 
   getBooks(): Observable<any> {
     return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/book/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  getBookCopies(): Observable<any> {
+    return this.http.get<BookCopyVM[]>('http://localhost:8080/ProjetFinal/bookcopy/get', httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

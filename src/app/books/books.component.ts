@@ -1,19 +1,19 @@
 import {AuthorVM} from '../models/authorVM';
 import {Component, OnInit} from '@angular/core';
 import {BookVM} from '../models/bookVM';
+import {BookCopyVM} from '../models/BookCopyVM';
 import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
 
-
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.css']
 })
-export class AccueilComponent implements OnInit {
+export class BooksComponent implements OnInit {
 
   bookVM: BookVM = {
     isbn: null,
@@ -36,9 +36,7 @@ export class AccueilComponent implements OnInit {
   };
 
 
-
-  listeLivresRecom: any;
-
+  listeBook: any;
 
   constructor(
     private backService: BackendService,
@@ -47,33 +45,24 @@ export class AccueilComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-
-    this.listeLivresRecom = this.getRecommendedBooks();
-    // this.auteur
-    console.log('listeLivresRecom');
-    console.log(this.listeLivresRecom);
+    this.getBooks();
   }
 
-  getRecommendedBooks(): any {
-    this.backService.getRecommendedBooks().subscribe(
+  getBooks(): any {
+    this.backService.getBooks().subscribe(
       data => {
-        console.log('data');
-        console.log(data);
         this.backService.handleData(data);
         if (data.payload) {
-          this.listeLivresRecom = data.payload;
-          console.log('data payload');
-          console.log(data.payload);
-          return data.payload;
+          this.listeBook = data.payload;
+          return this.listeBook;
         }
       },
       error => {
         console.log('error !!!!!');
         console.error(error.message);
-        this.messageService.displayErrorMessage(error.message);
+        return null;
       }
     );
-
   }
 
 }

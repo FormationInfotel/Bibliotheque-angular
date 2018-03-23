@@ -16,13 +16,18 @@ import {NgSelectOption} from '@angular/forms';
 })
 export class CreatelivreComponent implements OnInit {
   bookVM: BookVM = {
-    ISBN: null,
+    isbn: null,
     book_title: '',
     book_description: '',
     book_price: null,
     publication_date: '',
     image_path: '',
     popular_book: false,
+    author_lastname: '',
+    author_firstname: '',
+    listCopy: null,
+    editor_name: null,
+  category_name: null,
 
     book_authorId: null,
     book_editorId: null,
