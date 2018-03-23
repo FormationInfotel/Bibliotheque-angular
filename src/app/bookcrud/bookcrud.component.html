@@ -21,14 +21,14 @@
 			</tr>
 		</thead>
 		<tr *ngFor="let book of listeBook">
-			<td>{{book.ISBN}}</td>
+			<td>{{book.isbn}}</td>
 			<td>{{book.book_title}}</td>
-			<td>{{book.book_authorId}}</td>
-			<td>{{book.book_editorId}}</td>
-			<td>{{book.book_categoryId}}</td>
+			<td>{{book.author_lastname}} {{book.author_firstname}}</td>
+			<td>{{book.editor_name}}</td>
+			<td>{{book.category_name}}</td>
 
 			<td>
-				<button class="btn btn-info">Details</button>
+				<button class="btn btn-info" [routerLink]="['/bookdetails']" [queryParams]="{ id: book.isbn}">Details</button>
 				<button class="btn btn-primary">Update</button>
 				<button class="btn btn-danger">Delete</button>
 			</td>

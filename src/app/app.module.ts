@@ -27,6 +27,8 @@ import {DatashareService} from './service/datashare.service';
 import {CommonModule} from '@angular/common';
 
 import {MessageDirective} from './directives/message.directive';
+import { BooksComponent } from './books/books.component';
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 
 
 
@@ -47,7 +49,8 @@ import {MessageDirective} from './directives/message.directive';
     MessageDirective,
     BookcrudComponent,
     CreatelivreComponent,
-    BorrowvalidationComponent
+    BooksComponent,
+    BookdetailsComponent
     // HttpClientModule
   ],
   imports: [
