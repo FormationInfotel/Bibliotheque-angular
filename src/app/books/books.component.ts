@@ -27,13 +27,14 @@ export class BooksComponent implements OnInit {
     author_lastname: null,
     author_firstname: null,
     editor_name: null,
-  category_name: null,
+    category_name: null,
 
     book_authorId: null,
     book_editorId: null,
     book_categoryId: null,
     listCopy: null
   };
+
 
 
   listeBook: any;

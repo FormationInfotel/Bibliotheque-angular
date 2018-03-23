@@ -51,12 +51,6 @@ export class BookcrudComponent implements OnInit {
     this.router.navigate(['/createbook']);
   }
 
-  getDetails(id) {
-    console.log('ID =========avant=========');
-    console.log(id);
-    this.router.navigate(['/bookdetails', {queryParams: {id: id}}]);
-  }
-
   getBooks(): any {
     this.backService.getBooks().subscribe(
       data => {
@@ -68,9 +62,7 @@ export class BookcrudComponent implements OnInit {
         }
       },
       error => {
-        console.log('error !!!!!');
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
         return null;
       }
     );
