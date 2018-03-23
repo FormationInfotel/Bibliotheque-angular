@@ -49,7 +49,7 @@ export class MemberComponent implements OnInit {
       },
       error => {
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
       }
 
     );

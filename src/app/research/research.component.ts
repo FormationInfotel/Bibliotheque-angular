@@ -5,6 +5,7 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-research',
   templateUrl: './research.component.html',
@@ -43,7 +44,7 @@ export class ResearchComponent implements OnInit {
       error => {
 
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
       }
     );
 

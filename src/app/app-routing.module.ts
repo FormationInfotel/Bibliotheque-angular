@@ -13,6 +13,7 @@ import {MentionslegalesComponent} from './mentionslegales/mentionslegales.compon
 import {MessageComponent} from './message/message.component';
 import {BookcrudComponent} from './bookcrud/bookcrud.component';
 import {CreatelivreComponent} from './createlivre/createlivre.component';
+import {BorrowvalidationComponent} from './borrowvalidation/borrowvalidation.component';
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'resultat', component: ResultatComponent},
   {path: 'book', component: BookcrudComponent},
   {path: 'createbook', component: CreatelivreComponent},
+  {path: 'borrow', component: BorrowvalidationComponent},
   {path: 'mentionslegales', component: MentionslegalesComponent},
   {path: 'messages', component: MessageComponent, outlet: 'messages'},
   {path: '**', component: PagenotfoundComponent}

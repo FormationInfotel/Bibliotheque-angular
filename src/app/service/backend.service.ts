@@ -36,13 +36,26 @@ export class BackendService {
   }
 
 
-    getRecommendedBooks(): Observable<any> {
+  getRecommendedBooks(): Observable<any> {
     return this.http.get<BookVM>('http://localhost:8080/ProjetFinal/recommendedbooks', httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)
       );
   }
+
+
+  getBooksByKeyword(keyword: any): Observable<any> {
+     console.log('keyword');
+    console.log(keyword);
+    return this.http.post<any>('http://localhost:8080/ProjetFinal/resultat', keyword, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+
 
   getMember(): Observable<any> {
     return this.http.get<MemberVM>('http://localhost:8080/ProjetFinal/member/get', httpOptions)
@@ -70,6 +83,15 @@ export class BackendService {
 
   getBooks(): Observable<any> {
     return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/book/get', httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+
+  getBorrows(): Observable<any> {
+    return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/borrow/get', httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

@@ -17,6 +17,9 @@ import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {MessageComponent} from './message/message.component';
 import {ResultatComponent} from './resultat/resultat.component';
 import {MentionslegalesComponent} from './mentionslegales/mentionslegales.component';
+import {BorrowvalidationComponent} from './borrowvalidation/borrowvalidation.component';
+import {BookcrudComponent} from './bookcrud/bookcrud.component';
+import {CreatelivreComponent} from './createlivre/createlivre.component';
 
 import {BackendService} from './service/backend.service';
 import {MessageService} from './service/message.service';
@@ -24,8 +27,8 @@ import {DatashareService} from './service/datashare.service';
 import {CommonModule} from '@angular/common';
 
 import {MessageDirective} from './directives/message.directive';
-import {BookcrudComponent} from './bookcrud/bookcrud.component';
-import { CreatelivreComponent } from './createlivre/createlivre.component';
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { CreatelivreComponent } from './createlivre/createlivre.component';
     MentionslegalesComponent,
     MessageDirective,
     BookcrudComponent,
-    CreatelivreComponent
+    CreatelivreComponent,
+    BorrowvalidationComponent
     // HttpClientModule
   ],
   imports: [

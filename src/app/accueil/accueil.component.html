@@ -11,13 +11,9 @@
 		<div class="container">
 			<div class="row">
 				<div *ngFor="let book of listeLivresRecom">
-					<!-- 					<div class="col-md-4"> -->
-					<!-- 						<div class="card mb-4 box-shadow" style="display: flex"> -->
-					<!-- 						<img height="190px" width="190px" src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}"/> -->
+					
 					<div style="text-align: center;">
-						<img
-							style="max-height: 225px; max-width: 300px; text-align: center;"
-							src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
+						<img style = "max-height: 225px; max-width: 300px; text-align: center;" src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
 					</div>
 					<div class="card-body">
 						<p class="card-text">Titre :{{book.book_title}}</p>
@@ -32,8 +28,7 @@
 									au panier</button>
 							</div>
 						</div>
-						<!-- 						</div> -->
-						<!-- 						</div> -->
+						
 					</div>
 				</div>
 			</div>

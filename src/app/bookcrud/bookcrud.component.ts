@@ -23,6 +23,8 @@ export class BookcrudComponent implements OnInit {
     publication_date: '',
     image_path: '',
     popular_book: false,
+    author_firstname: null,
+    author_lastname: null,
 
     book_authorId: null,
     book_editorId: null,
@@ -58,7 +60,7 @@ export class BookcrudComponent implements OnInit {
       error => {
         console.log('error !!!!!');
         console.error(error.message);
-        // messageService.displayFailureMessage(error.message);
+         this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );
