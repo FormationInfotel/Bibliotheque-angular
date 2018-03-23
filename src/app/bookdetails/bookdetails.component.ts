@@ -1,4 +1,4 @@
-import { BookVM } from '../models/bookVM';
+import {BookVM} from '../models/bookVM';
 import {ParamMap, ActivatedRoute, Router} from '@angular/router';
 import {MemberVM} from '../models/memberVM';
 import {Component, OnInit} from '@angular/core';
@@ -6,7 +6,7 @@ import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {CommonModule} from '@angular/common';
-import { Subscription } from 'rxjs';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -37,25 +37,9 @@ export class BookdetailsComponent implements OnInit {
   };
 
   listResult: any;
-
+  id: any;
   sub: Subscription;
 
-  memberVM: MemberVM = {
-
-  member_id: null,
-  member_lastname: null,
-  member_firstname: null,
-  member_email: null,
-  member_address: null,
-  member_password: null,
-  isMemberAdmin: null,
-  member_LibraryId: null,
-
-};
-
-  listeMembres: any;
-
-  id: any;
   constructor(
     private backService: BackendService,
     private messageService: MessageService,
@@ -74,8 +58,8 @@ export class BookdetailsComponent implements OnInit {
     this.listResult = this.getBookById(this.id);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
   getBookById(id): any {
     this.backService.getBookById(id).subscribe(
