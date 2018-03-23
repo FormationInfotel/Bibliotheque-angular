@@ -6,15 +6,17 @@ import {BackendService} from '../service/backend.service';
 import {DatashareService} from '../service/datashare.service';
 import {MessageService} from '../service/message.service';
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {NgSelectOption} from '@angular/forms';
 
 @Component({
-  selector: 'app-createlivre',
-  templateUrl: './createlivre.component.html',
-  styleUrls: ['./createlivre.component.css']
+  selector: 'app-updatebook',
+  templateUrl: './updatebook.component.html',
+  styleUrls: ['./updatebook.component.css']
 })
-export class CreatelivreComponent implements OnInit {
+export class UpdatebookComponent implements OnInit {
+  id: number;
+  sub: any;
   bookVM: BookVM = {
     isbn: null,
     book_title: '',
@@ -27,7 +29,7 @@ export class CreatelivreComponent implements OnInit {
     author_firstname: '',
     listCopy: null,
     editor_name: null,
-  category_name: null,
+    category_name: null,
 
     book_authorId: null,
     book_editorId: null,
@@ -55,27 +57,43 @@ export class CreatelivreComponent implements OnInit {
   listAuthor: any;
   listEditor: any;
   listCategory: any;
+  listResult: any;
 
   constructor(private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
-    private router: Router) {}
+    private router: Router,
+    private route: ActivatedRoute) {
 
-  ngOnInit() {
+
+    this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+        console.log(typeof (+params.id));
+        this.id = +params.id;
+        console.log(this.id);
+      });
     this.getAuthor();
     this.getCategory();
     this.getEditor();
+    this.listResult = this.getBookById(this.id);
+    console.log(this.listResult);
+
   }
 
-  addBook() {
-    console.log('bookDTO');
-    console.log(this.bookVM);
-    this.backService.addBooks(this.bookVM).subscribe(
+
+
+
+
+  ngOnInit() {
+  }
+
+  updateBook() {
+    this.backService.updateBook(this.bookVM).subscribe(
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log(data.payload);
-          this.router.navigate(['/books']);
+          this.router.navigate(['/book']);
         }
       },
       error => {
@@ -85,19 +103,35 @@ export class CreatelivreComponent implements OnInit {
     );
   }
 
+  getBookById(id): BookVM {
+    this.backService.getBookById(id).subscribe(
+      data => {
+        this.backService.handleData(data);
+        if (data.payload) {
+          console.log(data.payload);
+          return data.payload;
+        }
+      },
+      error => {
+        console.error(error.message);
+        return null;
+      }
+    );
+    return null;
+  }
+
   getAuthor(): any {
     this.backService.getAuthor().subscribe(
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log('data payload');
           this.listAuthor = data.payload;
           return this.listAuthor;
         }
       },
       error => {
         console.error(error.message);
-         this.messageService.displayErrorMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );
@@ -108,14 +142,12 @@ export class CreatelivreComponent implements OnInit {
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log('data payload');
           this.listEditor = data.payload;
           return this.listEditor;
         }
       },
       error => {
-        console.error(error.message);
-          this.messageService.displayErrorMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );
@@ -126,14 +158,13 @@ export class CreatelivreComponent implements OnInit {
       data => {
         this.backService.handleData(data);
         if (data.payload) {
-          console.log('data payload');
           this.listCategory = data.payload;
           return this.listCategory;
         }
       },
       error => {
         console.error(error.message);
-         this.messageService.displayErrorMessage(error.message);
+        this.messageService.displayErrorMessage(error.message);
         return null;
       }
     );

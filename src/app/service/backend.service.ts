@@ -89,6 +89,14 @@ export class BackendService {
       );
   }
 
+  updateBook(bookVM: BookVM): Observable<any> {
+    return this.http.post<BookVM[]>('http://localhost:8080/ProjetFinal/book/update', bookVM, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
   getBooks(): Observable<any> {
     return this.http.get<BookVM[]>('http://localhost:8080/ProjetFinal/book/get', httpOptions)
       .pipe(

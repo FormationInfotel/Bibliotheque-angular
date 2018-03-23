@@ -1,3 +1,4 @@
+import { BookVM } from '../models/bookVM';
 import {ParamMap, ActivatedRoute, Router} from '@angular/router';
 import {MemberVM} from '../models/memberVM';
 import {Component, OnInit} from '@angular/core';
@@ -14,7 +15,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./bookdetails.component.css']
 })
 
-
+export class BookdetailsComponent implements OnInit {
 
   bookVM: BookVM = {
     isbn: null,
@@ -35,7 +36,7 @@ import { Subscription } from 'rxjs';
     listCopy: null
   };
 
-  listResult: null;
+  listResult: any;
 
   sub: Subscription;
 
@@ -70,14 +71,10 @@ import { Subscription } from 'rxjs';
         console.log(this.id);
       });
 
-    this.bookVM = this.getBookById(this.id);
+    this.listResult = this.getBookById(this.id);
   }
 
   ngOnInit() {
-
-     this.listeMembres = this.getMembre();
-    console.log('listeLivresRecom');
-    console.log(this.listeMembres);
   }
 
   getBookById(id): any {

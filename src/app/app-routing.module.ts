@@ -17,6 +17,7 @@ import {CreatelivreComponent} from './createlivre/createlivre.component';
 import {BooksComponent} from './books/books.component';
 import {BookdetailsComponent} from './bookdetails/bookdetails.component';
 import {BorrowvalidationComponent} from './borrowvalidation/borrowvalidation.component';
+import {UpdatebookComponent} from './updatebook/updatebook.component';
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'createbook', component: CreatelivreComponent},
   {path: 'books', component: BooksComponent},
   {path: 'bookdetails', component: BookdetailsComponent},
+  {path: 'updatebook', component: UpdatebookComponent},
   {path: 'mentionslegales', component: MentionslegalesComponent},
   {path: 'messages', component: MessageComponent, outlet: 'messages'},
   {path: '**', component: PagenotfoundComponent}

@@ -2,7 +2,7 @@
 	<div class="container">
 		<h1 class="display-4">BibliGestion</h1>
 		<p class="lead">Bienvenue dans l'espace de gestion de votre
-			bibliothèque !</p>
+			bibliothÃ¨que !</p>
 	</div>
 	<div class="album py-5 bg-light">
 		<div class="container">
@@ -22,17 +22,16 @@
 						<p class="card-text">Prix : {{book.book_price}} euros</p>
 						<p class="card-text">Auteur : {{book.author_lastname}}
 							{{book.author_firstname}}</p>
-						<p class="card-text">Quantité : {{book.listCopy.length}}</p>
+						<p class="card-text">Quantitï¿½ : {{book.listCopy.length}}</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Voir
-									Livre</button>
+								<button type="button" [routerLink]="['/bookdetails']"
+									[queryParams]="{ id: book.isbn}"
+									class="btn btn-sm btn-outline-secondary">Voir Livre</button>
 								<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter
 									au panier</button>
 							</div>
 						</div>
-						<!-- 						</div> -->
-						<!-- 						</div> -->
 					</div>
 				</div>
 			</div>

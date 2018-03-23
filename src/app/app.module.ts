@@ -30,6 +30,7 @@ import {MessageDirective} from './directives/message.directive';
 import { BooksComponent } from './books/books.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
+import { UpdatebookComponent } from './updatebook/updatebook.component';
 
 
 
@@ -53,7 +54,8 @@ import { MemberdetailsComponent } from './memberdetails/memberdetails.component'
     BooksComponent,
     BookdetailsComponent,
     MemberdetailsComponent,
-    BorrowvalidationComponent
+    BorrowvalidationComponent,
+    UpdatebookComponent
     // HttpClientModule
   ],
   imports: [
