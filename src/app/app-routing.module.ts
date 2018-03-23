@@ -5,6 +5,7 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginComponent} from './login/login.component';
 import {MemberComponent} from './member/member.component';
+import {MemberdetailsComponent} from './memberdetails/memberdetails.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ResearchComponent} from './research/research.component';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
@@ -23,9 +24,11 @@ const routes: Routes = [
   {path: 'footer', component: FooterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'member', component: MemberComponent},
+  {path: 'memberdetails', component: MemberdetailsComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'research', component: ResearchComponent},
   {path: 'resultat', component: ResultatComponent},
+  {path: 'borrow', component: BorrowvalidationComponent},
   {path: 'book', component: BookcrudComponent},
   {path: 'createbook', component: CreatelivreComponent},
   {path: 'books', component: BooksComponent},

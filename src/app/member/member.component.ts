@@ -4,7 +4,7 @@ import {MemberVM} from '../models/memberVM';
 import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-member',
@@ -29,15 +29,17 @@ export class MemberComponent implements OnInit {
   constructor(private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
-    private router: Router) {}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getMembers();
   }
 
-//    createMember() {
-//    this.router.navigate(['/createmember']);
-//  }
+    createMember() {
+    this.router.navigate(['/createmember']);
+  }
 
 
      getMembers(): any {

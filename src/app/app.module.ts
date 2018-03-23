@@ -29,6 +29,7 @@ import {CommonModule} from '@angular/common';
 import {MessageDirective} from './directives/message.directive';
 import { BooksComponent } from './books/books.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
+import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
 
 
 
@@ -50,7 +51,9 @@ import { BookdetailsComponent } from './bookdetails/bookdetails.component';
     BookcrudComponent,
     CreatelivreComponent,
     BooksComponent,
-    BookdetailsComponent
+    BookdetailsComponent,
+    MemberdetailsComponent,
+    BorrowvalidationComponent
     // HttpClientModule
   ],
   imports: [

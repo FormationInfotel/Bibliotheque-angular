@@ -18,7 +18,7 @@
 				<th>Email</th>
 				<th>Library</th>
 				<th>Address</th>
-				<th>est admin</th>
+<!-- 				<th>est admin</th> -->
 			</tr>
 		</thead>
 		<tr *ngFor="let member of listeMembers">
@@ -27,9 +27,9 @@
 			<td>{{member.member_email}}</td>
 			<td>{{member.member_Library}}</td>
 			<td>{{member.member_address}}</td>
-
+<!-- 			<td>{{member.isMemberAdmin}}</td> -->
 			<td>
-				<button class="btn btn-info">Details</button>
+				<button class="btn btn-info" [routerLink]="['/memberdetails']" [queryParams]="{ id: member.member_id}">Details</button>
 				<button class="btn btn-primary">Update</button>
 				<button class="btn btn-danger">Delete</button>
 			</td>

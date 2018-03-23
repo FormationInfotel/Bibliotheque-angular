@@ -23,8 +23,9 @@ export class BorrowvalidationComponent implements OnInit {
     isValidated: null,
   };
 
+
   bookVM: BookVM = {
-    ISBN: null,
+    isbn: null,
     book_title: null,
     book_description: null,
     book_price: null,
@@ -33,6 +34,10 @@ export class BorrowvalidationComponent implements OnInit {
     popular_book: null,
     author_lastname: null,
     author_firstname: null,
+    editor_name: null,
+    category_name: null,
+
+    listCopy: null,
 
     book_authorId: null,
     book_editorId: null,

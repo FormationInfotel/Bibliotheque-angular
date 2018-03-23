@@ -1,15 +1,14 @@
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1 class="display-4">Resultat de votre recherche :</h1>
+		<h1 class="display-4">Résultat de votre recherche :</h1>
 		<br>
 		<hr>
-		<div [hidden]='listeLivresRech.length'>Aucun elements</div>
+		<div [hidden]='listeLivresRech.length'>Aucun élément</div>
 	</div>
 </div>
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
-			<!-- 			<c:forEach items="${ListeResultat}" var="book"> -->
 			<div *ngFor="let book of listeLivresRech">
 
 				<div style="text-align: center;">
@@ -35,5 +34,4 @@
 		</div>
 	</div>
 </div>
-<!-- 			</c:forEach> -->
 

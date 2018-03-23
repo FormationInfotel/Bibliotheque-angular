@@ -1,12 +1,9 @@
-﻿<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid">
 	<div class="container">
 		<h1 class="display-4">BibliGestion</h1>
 		<p class="lead">Bienvenue dans l'espace de gestion de votre
-			bibliothÃ¨que !</p>
+			biblioth�que !</p>
 	</div>
-
-
-
 	<div class="album py-5 bg-light">
 		<div class="container">
 			<div class="row">
@@ -19,16 +16,17 @@
 							style="max-height: 225px; max-width: 300px; text-align: center;"
 							src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
 					</div>
-					<div class="card-body" style="max-width:300px">
+					<div class="card-body" style="max-width: 300px">
 						<p class="card-text">Titre : {{book.book_title}}</p>
 						<p class="card-text">{{book.book_description}}</p>
 						<p class="card-text">Prix : {{book.book_price}} euros</p>
 						<p class="card-text">Auteur : {{book.author_lastname}}
 							{{book.author_firstname}}</p>
-							<p class="card-text">Quantité : {{book.listCopy.length}} </p>
+						<p class="card-text">Quantit� : {{book.listCopy.length}}</p>
 						<div class="d-flex justify-content-between align-items-center">
 							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Voir Livre</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary">Voir
+									Livre</button>
 								<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter
 									au panier</button>
 							</div>

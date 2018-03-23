@@ -1,47 +1,46 @@
-import {ParamMap, ActivatedRoute, Router} from '@angular/router';
 import {MemberVM} from '../models/memberVM';
 import {Component, OnInit} from '@angular/core';
 import {BackendService} from '../service/backend.service';
 import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-bookdetails',
-  templateUrl: './bookdetails.component.html',
-  styleUrls: ['./bookdetails.component.css']
+  selector: 'app-memberdetails',
+  templateUrl: './memberdetails.component.html',
+  styleUrls: ['./memberdetails.component.css']
 })
 
-
-export class BookdetailsComponent implements OnInit {
-  sub: Subscription;
+export class MemberdetailsComponent implements OnInit {
 
   memberVM: MemberVM = {
 
-  member_id: null,
-  member_lastname: null,
-  member_firstname: null,
-  member_email: null,
-  member_address: null,
-  member_password: null,
-  isMemberAdmin: null,
-  member_LibraryId: null,
-
-};
+    member_id: null,
+    member_lastname: null,
+    member_firstname: null,
+    member_email: null,
+    member_address: null,
+    member_password: null,
+    isMemberAdmin: null,
+    member_LibraryId: null,
+  };
 
   listeMembres: any;
-
   id: any;
+  sub: any;
+
   constructor(
     private backService: BackendService,
     private messageService: MessageService,
     private dss: DatashareService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute) {}
 
-    this.sub = this.route
+  ngOnInit() {
+
+    this.sub = this.activatedRoute
       .queryParams
       .subscribe(params => {
         console.log(params['id']);
@@ -49,12 +48,9 @@ export class BookdetailsComponent implements OnInit {
       });
     console.log('ID=====apres======');
     console.log(this.id);
-  }
 
-  ngOnInit() {
-
-     this.listeMembres = this.getMembre();
-    console.log('listeLivresRecom');
+    this.listeMembres = this.getMembre();
+    console.log('listeMembres');
     console.log(this.listeMembres);
   }
 
