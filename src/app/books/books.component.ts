@@ -15,28 +15,7 @@ import {CommonModule} from '@angular/common';
 })
 export class BooksComponent implements OnInit {
 
-  bookVM: BookVM = {
-    isbn: null,
-    book_title: null,
-    book_description: null,
-    book_price: null,
-    publication_date: null,
-    image_path: null,
-    popular_book: null,
-
-    author_lastname: null,
-    author_firstname: null,
-    editor_name: null,
-    category_name: null,
-
-    book_authorId: null,
-    book_editorId: null,
-    book_categoryId: null,
-    listCopy: null
-  };
-
-
-
+  bookVM: BookVM;
   listeBook: any;
 
   constructor(

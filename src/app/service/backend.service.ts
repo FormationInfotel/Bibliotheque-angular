@@ -106,7 +106,7 @@ export class BackendService {
       );
   }
 
-    getMembre(id): Observable<any> {
+  getMembre(id): Observable<any> {
     return this.http.post<MemberVM>('http://localhost:8080/ProjetFinal/member/getOne', id, httpOptions)
       .pipe(
       retry(3),
@@ -162,15 +162,6 @@ export class BackendService {
       );
   }
 
-  Research(researchVM: ResearchVM): Observable<any> {
-    console.log(researchVM + 'researchVM');
-    console.log('keyword' + researchVM.keyword);
-    return this.http.post<BookVM>('http://localhost:8080/ProjetFinal/research/' + researchVM.keyword, httpOptions)
-      .pipe(
-      retry(3),
-      catchError(this.handleError)
-      );
-  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

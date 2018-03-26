@@ -7,46 +7,24 @@ import {Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-research',
-  templateUrl: './research.component.html',
-  styleUrls: ['./research.component.css']
+ selector: 'app-research',
+ templateUrl: './research.component.html',
+ styleUrls: ['./research.component.css']
 })
 export class ResearchComponent implements OnInit {
 
-  keyword: ResearchVM = {
-    keyword: ''
-  };
+ keyword: ResearchVM = {
+   keyword: ''
+ };
 
-  constructor(
-    private backService: BackendService,
-    private messageService: MessageService,
-    private dss: DatashareService,
-    private router: Router) {}
+ constructor(
+   private backService: BackendService,
+   private messageService: MessageService,
+   private dss: DatashareService,
+   private router: Router) {}
 
-  ngOnInit() {
-  }
+ ngOnInit() {
+ }
 
-  research() {
-    this.backService.Research(this.keyword).subscribe(
 
-      data => {
-        console.log(data);
-        this.backService.handleData(data);
-        if (data.payload) {
-          console.log(data.payload);
-          // cache the logged member in datashare service
-          this.dss.loggedMember = data.payload;
-          // navigate to home and display navbar or the hidden tabs
-          this.router.navigate(['/resultat']);
-        }
-
-      },
-      error => {
-
-        console.error(error.message);
-        this.messageService.displayErrorMessage(error.message);
-      }
-    );
-
-  }
 }

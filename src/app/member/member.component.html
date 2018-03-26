@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
 	<div class="container">
 		<div class="jumbotron-heading">
-			<h1 class="display-4">Gestion des Membres</h1>
+			<h1 class="display-4">Gestion des membres</h1>
 			<br>
 			<form>
 				<!-- 				<button class="btn btn-primary" type="submit" (click)="createMember()">Create</button> -->
@@ -13,12 +13,12 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Firstname</th>
-				<th>Lastname</th>
+				<th>Prénom</th>
+				<th>Nom</th>
 				<th>Email</th>
-				<th>Library</th>
-				<th>Address</th>
-<!-- 				<th>est admin</th> -->
+				<th>Bibliothèque</th>
+				<th>Adresse</th>
+ 				<th>Actions</th> 
 			</tr>
 		</thead>
 		<tr *ngFor="let member of listeMembers">
@@ -29,9 +29,9 @@
 			<td>{{member.member_address}}</td>
 <!-- 			<td>{{member.isMemberAdmin}}</td> -->
 			<td>
-				<button class="btn btn-info" [routerLink]="['/memberdetails']" [queryParams]="{ id: member.member_id}">Details</button>
-				<button class="btn btn-primary">Update</button>
-				<button class="btn btn-danger">Delete</button>
+				<button class="btn btn-info" [routerLink]="['/memberdetails']" [queryParams]="{ id: member.member_id}">Détail</button>
+				<button class="btn btn-primary">MàJ</button>
+				<button class="btn btn-danger">Supprimer</button>
 			</td>
 		</tr>
 	</table>

@@ -30,14 +30,22 @@
 			<li class="nav-item active"><a class="nav-link" href="/books">Books<span
 					class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/borrow">Valider Emprunt<span class="sr-only">(current)</span>
+			<li class="nav-item active"><a class="nav-link" href="/borrow">Valider
+					Emprunt<span class="sr-only">(current)</span>
 			</a></li>
 		</ul>
-		<form class="form-inline" method="POST" action="${context}/recherche">
-			<input class="form-control mr-sm-2" type="search"
-				placeholder="Nom de livre" aria-label="Search" id="txboxRecherche"
-				name="txboxRecherche">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
+		<!-- 		<form class="form-inline" method="POST" action="${context}/recherche"> -->
+		<!-- 			<input class="form-control mr-sm-2" type="search" -->
+		<!-- 				placeholder="Nom de livre" aria-label="Search" id="txboxRecherche" -->
+		<!-- 				name="txboxRecherche"> -->
+		<!-- 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+		<!-- 		</form> -->
+
 	</div>
+	<form>
+		<input class="form-control" id="txboxRecherche" name="txboxRecherche"
+			[(ngModel)]='keyword.keyword' type="text" placeholder="Recherche">
+		<button [routerLink]="['/resultat']"
+			[queryParams]="{ keyword: keyword.keyword }" class="btn btn-default">Rechercher</button>
+	</form>
 </nav>
