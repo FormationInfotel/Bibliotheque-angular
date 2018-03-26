@@ -1,6 +1,10 @@
-import { Component, OnInit , ViewChild, AfterViewInit} from '@angular/core';
-import { MessageDirective } from '../directives/message.directive';
-import { DatashareService } from '../service/datashare.service';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import {MessageDirective} from '../directives/message.directive';
+import {BackendService} from '../service/backend.service';
+import {MessageService} from '../service/message.service';
+import {ResearchVM} from '../models/researchVM';
+import {DatashareService} from '../service/datashare.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +13,21 @@ import { DatashareService } from '../service/datashare.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
+  keyword: ResearchVM = {
+    keyword: ''
+  };
+
   @ViewChild(MessageDirective) messageHost: MessageDirective;
 
-  constructor(private dss: DatashareService) { }
+  constructor(
+    private backService: BackendService,
+    private messageService: MessageService,
+    private dss: DatashareService,
+    private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+
 
   ngAfterViewInit() {
     console.log('passage par afterinit de header');

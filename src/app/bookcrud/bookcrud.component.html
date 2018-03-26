@@ -14,10 +14,11 @@
 		<thead>
 			<tr>
 				<th>ISBN</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Editor</th>
-				<th>Category</th>
+				<th>Titre</th>
+				<th>Auteur</th>
+				<th>Editeur</th>
+				<th>Categorie</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tr *ngFor="let book of listeBook">
@@ -28,9 +29,11 @@
 			<td>{{book.category_name}}</td>
 
 			<td>
-				<button class="btn btn-info" [routerLink]="['/bookdetails']" [queryParams]="{ id: book.isbn}">Details</button>
-				<button class="btn btn-primary" [routerLink]="['/updatebook']" [queryParams]="{ id: book.isbn}">Update</button>
-				<button class="btn btn-danger">Delete</button>
+				<button class="btn btn-info" [routerLink]="['/bookdetails']"
+					[queryParams]="{ id: book.isbn}">Détails</button>
+				<button class="btn btn-primary" [routerLink]="['/updatebook']"
+					[queryParams]="{ id: book.isbn}">MàJ</button>
+				<button class="btn btn-danger">Supprimer</button>
 			</td>
 		</tr>
 	</table>

@@ -14,30 +14,8 @@ import {CommonModule} from '@angular/common';
 })
 export class ResultatComponent implements OnInit {
 
-  bookVM: BookVM = {
-    isbn: null,
-    book_title: null,
-    book_description: null,
-    book_price: null,
-    publication_date: null,
-    image_path: null,
-    popular_book: null,
-    author_lastname: null,
-    author_firstname: null,
-    editor_name: null,
-    category_name: null,
-
-    listCopy: null,
-
-    book_authorId: null,
-    book_editorId: null,
-    book_categoryId: null,
-
-  };
-
-
   keyword: ResearchVM = {
-    keyword: ''
+  keyword: ''
   };
 
   listeLivresRech: any;
@@ -52,6 +30,7 @@ export class ResultatComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+
     this.sub = this.activatedRoute
       .queryParams
       .subscribe(params => {
@@ -59,11 +38,13 @@ export class ResultatComponent implements OnInit {
       });
 
     this.listeLivresRech = this.getBooksByKeyword(this.keyword.keyword);
+      console.log('liste' + this.listeLivresRech);
     console.log(this.getBooksByKeyword(this.keyword.keyword));
 
   }
 
   getBooksByKeyword(keyword): any {
+
     this.backService.getBooksByKeyword(keyword).subscribe(
       data => {
         console.log('data');

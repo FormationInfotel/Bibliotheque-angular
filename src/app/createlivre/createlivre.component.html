@@ -2,16 +2,16 @@
 	<div class="container">
 		<form>
 			<fieldset>
-				<legend>Sign up</legend>
+				<legend>Enregistrer un livre</legend>
 				<div class="form-group">
 					<label class="control-label col-lg-2">ISBN</label> <input
 						name="bookVM.ISBN" type="text" class="form-control"
 						[(ngModel)]='bookVM.isbn' placeholder="ISBN">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Title</label> <input
+					<label class="control-label col-lg-2">Titre</label> <input
 						name="bookVM.book_title" type="text" class="form-control"
-						[(ngModel)]='bookVM.book_title' placeholder="Title">
+						[(ngModel)]='bookVM.book_title' placeholder="Titre">
 				</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2">Description</label> <input
@@ -20,26 +20,26 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Price</label> <input
+					<label class="control-label col-lg-2">Prix</label> <input
 						name="bookVM.book_price" type="text" class="form-control"
-						[(ngModel)]='bookVM.book_price' placeholder="Price">
+						[(ngModel)]='bookVM.book_price' placeholder="Prix">
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Date of Publication</label> <input
+					<label class="control-label col-lg-2">Date de publication</label> <input
 						name="bookVM.publication_date" type="text" class="form-control"
-						[(ngModel)]='bookVM.publication_date' placeholder="Date">
+						[(ngModel)]='bookVM.publication_date' placeholder="Date de publication">
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Popular</label> <input
+					<label class="control-label col-lg-2">Livre populaire</label> <input
 						name="bookVM.popular_book" type="text" class="form-control"
 						[(ngModel)]='bookVM.popular_book' placeholder="Popular ?">
 				</div>
 
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Author</label>
+					<label class="control-label col-lg-2">Auteur</label>
 					<!--  -->
 					<select name="author.author_id" [(ngModel)]='bookVM.book_authorId'>
 						<option *ngFor="let author of listAuthor"
@@ -49,7 +49,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Category</label>
+					<label class="control-label col-lg-2">Catégorie</label>
 					<!--  -->
 					<select name="category.category_id"
 						[(ngModel)]='bookVM.book_categoryId'>
@@ -59,7 +59,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Editor</label>
+					<label class="control-label col-lg-2">Editeur</label>
 					<!--  -->
 					<select name="editor.editor_id" [(ngModel)]='bookVM.book_editorId'>
 						<option *ngFor="let editor of listEditor"

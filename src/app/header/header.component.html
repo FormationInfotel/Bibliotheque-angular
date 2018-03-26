@@ -1,6 +1,6 @@
 <ng-template message-host></ng-template>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/accueil">Bibliothèque</a>
+	<a class="navbar-brand" href="/accueil">BibliothÃ¨que</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarsExample05" aria-controls="navbarsExample05"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -34,11 +34,14 @@
 
 
 		</ul>
-		<form class="form-inline" method="POST" action="${context}/recherche">
-			<input class="form-control mr-sm-2" type="search"
-				placeholder="Nom de livre" aria-label="Search" id="txboxRecherche"
-				name="txboxRecherche">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
+		
+
 	</div>
+	<form>
+		<input class="form-control" id="txboxRecherche" name="txboxRecherche"
+			[(ngModel)]='keyword.keyword' type="text" placeholder="Recherche">
+		<button [routerLink]="['/resultat']"
+			[queryParams]="{ keyword: keyword.keyword }" class="btn btn-default">Rechercher</button>
+	</form>
 </nav>
