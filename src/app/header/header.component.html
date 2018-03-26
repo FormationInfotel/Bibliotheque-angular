@@ -1,6 +1,6 @@
 <ng-template message-host></ng-template>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="/accueil">BibliothÃ¨que</a>
+	<a class="navbar-brand" href="/accueil">Bibliothèque</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarsExample05" aria-controls="navbarsExample05"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -15,23 +15,24 @@
 			<li class="nav-item active"><a class="nav-link" href="/research">Recherche<span
 					class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link"
-				href="/registration">Register<span class="sr-only">(current)</span>
+			<li class="nav-item active"><a class="nav-link" href="/books">Liste
+					Livre<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item active"><a class="nav-link" href="/login">Login
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/member">CRUD
-					member<span class="sr-only">(current)</span>
-			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/book">CRUD
-					livre<span class="sr-only">(current)</span>
-			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/books">Books<span
-					class="sr-only">(current)</span>
-			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/borrow">Valider Emprunt<span class="sr-only">(current)</span>
-			</a></li>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Admin </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="/member">Membre</a> <a
+						class="dropdown-item" href="/book">Livre</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/borrow">Emprunt</a>
+				</div></li>
+
+
 		</ul>
 		<form class="form-inline" method="POST" action="${context}/recherche">
 			<input class="form-control mr-sm-2" type="search"

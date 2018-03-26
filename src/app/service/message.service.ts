@@ -38,8 +38,9 @@ export class MessageService {
     console.log(this.dss.messageViewContainerRef);
 
    const viewContainerRef = this.dss.messageViewContainerRef;
-    if (this.instantiatedComponent)
+    if (this.instantiatedComponent) {
       viewContainerRef.remove();
+    }
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MessageComponent);
     this.instantiatedComponent = viewContainerRef.createComponent(componentFactory);
 

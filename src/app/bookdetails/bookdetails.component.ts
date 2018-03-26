@@ -17,24 +17,7 @@ import {Subscription} from 'rxjs';
 
 export class BookdetailsComponent implements OnInit {
 
-  bookVM: BookVM = {
-    isbn: null,
-    book_title: '',
-    book_description: '',
-    book_price: null,
-    publication_date: '',
-    image_path: '',
-    popular_book: false,
-    author_lastname: '',
-    author_firstname: '',
-    editor_name: null,
-    category_name: null,
-
-    book_authorId: null,
-    book_editorId: null,
-    book_categoryId: null,
-    listCopy: null
-  };
+  bookVM: BookVM;
 
   listResult: any;
   id: any;

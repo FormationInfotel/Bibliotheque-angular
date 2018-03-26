@@ -5,7 +5,6 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-memberdetails',
@@ -30,7 +29,7 @@ export class MemberdetailsComponent implements OnInit {
 
   id: any;
   listeMembres: null;
-  sub: Subscription;
+  sub: any;
 
 
 

@@ -18,21 +18,21 @@
 					<th>Date de retour</th>
 					<th>Prenom</th>
 					<th>Nom</th>
-					<th>Livres empruntÃ©s</th>
+					<th>Livres empruntés</th>
 					<th></th>
 					<th>Valider l'emprunt</th>
 				</tr>
 			</thead>
-			
+
 			<tr *ngFor="let borrow of listeBorrow">
 				<td>{{borrow.borrow_date}}</td>
 				<td>{{borrow.return_date}}</td>
 				<td>{{borrow.member_firstname}}</td>
 				<td>{{borrow.member_lastname}}</td>
-				<!-- 				<td>{{borrow.borrow_listCopyId}}</td> -->
-				
+
 				<select name="livre.book_title" [(ngModel)]='bookVM.book_authorId'>
-					<option *ngFor="let livre of listeLivres" [ngValue]="livre.book_title">{{livre.book_title}}</option>
+					<option *ngFor="let livre of listeLivres"
+						[ngValue]="livre.book_title">{{livre.book_title}}</option>
 				</select>
 				<td>{{borrow.isValidated}}</td>
 

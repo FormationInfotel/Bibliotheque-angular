@@ -83,7 +83,9 @@ export class BackendService {
   }
 
   updateBook(bookVM: BookVM): Observable<any> {
-    return this.http.post<BookVM[]>('http://localhost:8080/ProjetFinal/book/update', bookVM, httpOptions)
+    console.log('=========uavant update=======');
+    console.log(bookVM);
+    return this.http.post<any>('http://localhost:8080/ProjetFinal/book/update', bookVM, httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)
@@ -106,7 +108,7 @@ export class BackendService {
       );
   }
 
-    getMembre(id): Observable<any> {
+  getMembre(id): Observable<any> {
     return this.http.post<MemberVM>('http://localhost:8080/ProjetFinal/member/getOne', id, httpOptions)
       .pipe(
       retry(3),
@@ -156,16 +158,6 @@ export class BackendService {
 
   newMember(memberVM: MemberVM): Observable<any> {
     return this.http.put<MemberVM>('http://localhost:8080/ProjetFinal/member/add', memberVM, httpOptions)
-      .pipe(
-      retry(3),
-      catchError(this.handleError)
-      );
-  }
-
-  Research(researchVM: ResearchVM): Observable<any> {
-    console.log(researchVM + 'researchVM');
-    console.log('keyword' + researchVM.keyword);
-    return this.http.post<BookVM>('http://localhost:8080/ProjetFinal/research/' + researchVM.keyword, httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

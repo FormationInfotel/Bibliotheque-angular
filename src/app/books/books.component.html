@@ -1,22 +1,19 @@
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1 class="display-4">BibliGestion</h1>
-		<p class="lead">Bienvenue dans l'espace de gestion de votre
-			bibliothèque !</p>
+		<h1 class="display-4">Liste des Livres</h1>
+		<br>
+		<br>
 	</div>
 	<div class="album py-5 bg-light">
 		<div class="container">
 			<div class="row">
 				<div *ngFor="let book of listeBook">
-					<!-- 					<div class="col-md-4"> -->
-					<!-- 						<div class="card mb-4 box-shadow" style="display: flex"> -->
-					<!-- 						<img height="190px" width="190px" src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}"/> -->
 					<div style="text-align: center;">
 						<img
 							style="max-height: 225px; max-width: 300px; text-align: center;"
 							src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
 					</div>
-					<div class="card-body" style="max-width: 300px">
+					<div class="card-body" style="max-width: 250px">
 						<p class="card-text">Titre : {{book.book_title}}</p>
 						<p class="card-text">{{book.book_description}}</p>
 						<p class="card-text">Prix : {{book.book_price}} euros</p>

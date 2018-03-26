@@ -17,24 +17,7 @@ import {NgSelectOption} from '@angular/forms';
 export class UpdatebookComponent implements OnInit {
   id: number;
   sub: any;
-  bookVM: BookVM = {
-    isbn: null,
-    book_title: '',
-    book_description: '',
-    book_price: null,
-    publication_date: '',
-    image_path: '',
-    popular_book: false,
-    author_lastname: '',
-    author_firstname: '',
-    listCopy: null,
-    editor_name: null,
-    category_name: null,
-
-    book_authorId: null,
-    book_editorId: null,
-    book_categoryId: null
-  };
+  bookVM: BookVM;
 
   authorVM: AuthorVM = {
     author_id: null,
@@ -57,7 +40,6 @@ export class UpdatebookComponent implements OnInit {
   listAuthor: any;
   listEditor: any;
   listCategory: any;
-  listResult: any;
 
   constructor(private backService: BackendService,
     private messageService: MessageService,
@@ -76,8 +58,9 @@ export class UpdatebookComponent implements OnInit {
     this.getAuthor();
     this.getCategory();
     this.getEditor();
-    this.listResult = this.getBookById(this.id);
-    console.log(this.listResult);
+    this.getBookById(this.id);
+
+    console.log(this.bookVM);
 
   }
 
@@ -109,7 +92,7 @@ export class UpdatebookComponent implements OnInit {
         this.backService.handleData(data);
         if (data.payload) {
           console.log(data.payload);
-          return data.payload;
+          this.bookVM = data.payload;
         }
       },
       error => {

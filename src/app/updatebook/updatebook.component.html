@@ -6,41 +6,37 @@
 				<legend>Sign up</legend>
 				<div class="form-group">
 					<label class="control-label col-lg-2">ISBN</label> <input
-						name="bookVM.ISBN" type="text" class="form-control"
-						value="{{bookVM.isbn}}" [(ngModel)]='bookVM.isbn'
-						placeholder="ISBN">
+						name="bookVM.isbn" type="text" class="form-control"
+						value="{{bookVM.isbn}}" [(ngModel)]='bookVM.isbn'>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2">Title</label> <input
 						name="bookVM.book_title" type="text" class="form-control"
-						value="{{bookVM.book_title}}" [(ngModel)]='bookVM.book_title'
-						placeholder="Title">
+						value="{{bookVM.book_title}}">
 				</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2">Description</label> <input
 						name="bookVM.book_description" type="text" class="form-control"
-						[(ngModel)]='bookVM.book_description' placeholder="Description">
+						[(ngModel)]='bookVM.book_description'>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2">Price</label> <input
 						name="bookVM.book_price" type="text" class="form-control"
-						[(ngModel)]='bookVM.book_price' placeholder="Price">
+						[(ngModel)]='bookVM.book_price'>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2">Date of Publication</label> <input
 						name="bookVM.publication_date" type="text" class="form-control"
-						[(ngModel)]='bookVM.publication_date' placeholder="Date">
+						[(ngModel)]='bookVM.publication_date'>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-lg-2">Popular</label> <input
-						name="bookVM.popular_book" type="text" class="form-control"
-						[(ngModel)]='bookVM.popular_book' placeholder="Popular ?">
+						id="popular_book" name="popular_book" type="text"
+						class="form-control" value="{{bookVM.popular_book}}">
 				</div>
-
-
 				<div class="form-group">
 					<label class="control-label col-lg-2">Book's Author</label>
 					<!--  -->
@@ -71,7 +67,7 @@
 				</div>
 
 				<div class="form-group">
-					<button (click)="updateBook()" class="btn btn-primary">Create</button>
+					<button (click)="updateBook()" class="btn btn-primary">Update</button>
 				</div>
 			</fieldset>
 		</form>

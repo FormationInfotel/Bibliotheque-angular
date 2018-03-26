@@ -17,7 +17,9 @@
 									<p class="card-text">Address : {{member.member_address}}</p>
 									<p class="card-text">Library : {{member.library_name}}</p>
 									<p class="card-text">Password : {{member.member_password}}</p>
-									<p class="card-text">Is admin : {{member.isMemberAdmin}}</p>
+									<div *ngIf=member.isMemberAdmin>
+										<p class="card-text">Is admin : {{member.isMemberAdmin}}</p>
+									</div>
 									<div class="d-flex justify-content-between align-items-center">
 									</div>
 								</div>
