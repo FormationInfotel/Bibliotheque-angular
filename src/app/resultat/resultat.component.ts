@@ -15,11 +15,12 @@ import {CommonModule} from '@angular/common';
 export class ResultatComponent implements OnInit {
 
   keyword: ResearchVM = {
-  keyword: ''
+    keyword: ''
   };
 
   listeLivresRech: any;
   sub: any;
+  compteur: number;
 
 
 
@@ -38,7 +39,8 @@ export class ResultatComponent implements OnInit {
       });
 
     this.listeLivresRech = this.getBooksByKeyword(this.keyword.keyword);
-      console.log('liste' + this.listeLivresRech);
+
+    console.log('liste' + this.listeLivresRech);
     console.log(this.getBooksByKeyword(this.keyword.keyword));
 
   }
@@ -52,6 +54,8 @@ export class ResultatComponent implements OnInit {
         this.backService.handleData(data);
         if (data.payload) {
           this.listeLivresRech = data.payload;
+          this.compteur = this.listeLivresRech.length;
+          console.log('cpt' + this.compteur);
           return this.listeLivresRech;
         }
       },

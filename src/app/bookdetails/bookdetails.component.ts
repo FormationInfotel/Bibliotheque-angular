@@ -50,8 +50,8 @@ export class BookdetailsComponent implements OnInit {
         this.backService.handleData(data);
         if (data.payload) {
           console.log(data.payload);
-          this.listResult = data.payload;
-          return this.listResult;
+          this.bookVM = data.payload;
+          //return this.listResult;
         }
       },
       error => {
