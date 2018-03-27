@@ -1,6 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1 class="display-4">Résultat de votre recherche :</h1>
+		<h1 class="display-4">Résultat de votre recherche : {{keyword.keyword}}</h1>
+		<h3 class="display-4">Nombre de résultats : {{compteur}}</h3>
 		<br>
 		<hr>
 		<div [hidden]='listeLivresRech.length'>Aucun élément</div>
@@ -11,43 +12,59 @@
 		<div class="row">
 			<div class="card-columns">
 				<div *ngFor="let book of listeLivresRech">
-
-					<div class="card-body">
-						<p class="card-text">{{book.book_title}}</p>
-						<p class="card-text">{{book.book_description}}</p>
-						<p class="card-text">{{book.book_price}} euros</p>
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Voir
-									Livre</button>
-								<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter
-									au panier</button>
+					<div class="card">
+						<div style="text-align: center;">
+							<img
+								style="max-height: 225px; max-width: 300px; text-align: center;"
+								src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
+						</div>
+						<div class="card-body">
+							<p class="card-text">
+								<strong>Titre : </strong>{{book.book_title}}
+							</p>
+							<p class="card-text">
+								<strong>Description : </strong>{{book.book_description}}
+							</p>
+							<p class="card-text">
+								<strong>Prix : </strong>{{book.book_price}} euros
+							</p>
+							<p class="card-text">
+								<strong>Auteur : </strong>{{book.author_lastname}}
+								{{book.author_firstname}}
+<!-- 							</p> -->
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">Voir
+										Livre</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter
+										au panier</button>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="card-body" style="max-width: 250px;">
-						<p class="card-text">
-							<strong>Titre : </strong>{{book.book_title}}
-						</p>
-						<p class="card-text">
-							<strong>Description : </strong>{{book.book_description}}
-						</p>
-						<p class="card-text">
-							<strong>Prix : </strong>{{book.book_price}} euros
-						</p>
-						<p class="card-text">
-							<strong>Auteur : </strong>{{book.author_lastname}}
-							{{book.author_firstname}}
-						</p>
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Voir
-									Livre</button>
-								<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter
-									au panier</button>
-							</div>
-						</div>
+<!-- 						<div class="card-body" style="max-width: 250px;"> -->
+<!-- 							<p class="card-text"> -->
+<!-- 								<strong>Titre : </strong>{{book.book_title}} -->
+<!-- 							</p> -->
+<!-- 							<p class="card-text"> -->
+<!-- 								<strong>Description : </strong>{{book.book_description}} -->
+<!-- 							</p> -->
+<!-- 							<p class="card-text"> -->
+<!-- 								<strong>Prix : </strong>{{book.book_price}} euros -->
+<!-- 							</p> -->
+<!-- 							<p class="card-text"> -->
+<!-- 								<strong>Auteur : </strong>{{book.author_lastname}} -->
+<!-- 								{{book.author_firstname}} -->
+<!-- 							</p> -->
+<!-- 							<div class="d-flex justify-content-between align-items-center"> -->
+<!-- 								<div class="btn-group"> -->
+<!-- 									<button type="button" class="btn btn-sm btn-outline-secondary">Voir -->
+<!-- 										Livre</button> -->
+<!-- 									<button type="button" class="btn btn-sm btn-outline-secondary">Ajouter -->
+<!-- 										au panier</button> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 			</div>
