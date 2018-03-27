@@ -15,11 +15,19 @@
 									src="http://localhost:8080/ProjetFinal/image?imagePath={{book.image_path}}" />
 							</div>
 							<div class="card-body" style="max-width: 250px">
-								<p class="card-text">Titre :{{book.book_title}}</p>
-								<p class="card-text">{{book.book_description}}</p>
-								<p class="card-text">Prix : {{book.book_price}} euros</p>
-								<p class="card-text">Auteur : {{book.author_lastname}}
-									{{book.author_firstname}}</p>
+								<p class="card-text">
+									<strong>Titre : </strong>{{book.book_title}}
+								</p>
+								<p class="card-text">
+									<strong>Description : </strong>{{book.book_description}}
+								</p>
+								<p class="card-text">
+									<strong>Prix : </strong>{{book.book_price}} euros
+								</p>
+								<p class="card-text">
+									<strong>Auteur : </strong>{{book.author_lastname}}
+									{{book.author_firstname}}
+								</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<button type="button" [routerLink]="['/bookdetails']"
@@ -29,6 +37,7 @@
 											au panier</button>
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>

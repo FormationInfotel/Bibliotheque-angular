@@ -15,7 +15,7 @@ export class MessageService {
   displayErrorMessage(message: string) {
     this.dss.message = message;
     this.dss.alertMessageClass = 'alert alert-danger';
-    this.onDisplayMessage();
+    // this.onDisplayMessage();
     console.log(this.dss.isMessageDisplayed);
     console.log(this.dss.alertMessageClass);
     console.log(this.dss.message);
@@ -24,27 +24,27 @@ export class MessageService {
   displaySuccessfullMessage(message: string) {
     this.dss.message = message;
     this.dss.alertMessageClass = 'alert alert-success';
-    this.onDisplayMessage();
+    // this.onDisplayMessage();
   }
 
   displayWarningMessage(message: string) {
     this.dss.message = message;
     this.dss.alertMessageClass = 'alert alert-warning';
-    this.onDisplayMessage();
+    //this.onDisplayMessage();
   }
 
-  private onDisplayMessage() {
-    console.log('trying to display message');
-    console.log(this.dss.messageViewContainerRef);
-
-   const viewContainerRef = this.dss.messageViewContainerRef;
-    if (this.instantiatedComponent) {
-      viewContainerRef.remove();
-    }
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MessageComponent);
-    this.instantiatedComponent = viewContainerRef.createComponent(componentFactory);
-
-    // this.router.navigate([{ outlets: { messages: [ 'messages' ] }}]);
-  }
+  //  private onDisplayMessage() {
+  //    console.log('trying to display message');
+  //    console.log(this.dss.messageViewContainerRef);
+  //
+  //   const viewContainerRef = this.dss.messageViewContainerRef;
+  //    if (this.instantiatedComponent) {
+  //      viewContainerRef.remove();
+  //    }
+  //    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(MessageComponent);
+  //    this.instantiatedComponent = viewContainerRef.createComponent(componentFactory);
+  //
+  //    // this.router.navigate([{ outlets: { messages: [ 'messages' ] }}]);
+  //  }
 
 }
