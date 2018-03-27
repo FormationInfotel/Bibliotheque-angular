@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     private dss: DatashareService,
     private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 
 

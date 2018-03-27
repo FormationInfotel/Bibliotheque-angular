@@ -31,17 +31,19 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="/borrow">Emprunt</a>
 				</div></li>
-
-
 		</ul>
-		</form>
-		
+		<div>
+
+			<form class="form-inline">
+				<input class="form-control mr-sm-2" id="txboxRecherche"
+					name="txboxRecherche" [(ngModel)]='keyword.keyword' type="text"
+					placeholder="Recherche">
+				<button [routerLink]="['/resultat']"
+					[queryParams]="{ keyword: keyword.keyword }"
+					class="btn btn-outline-success my-2 my-sm-0">Rechercher</button>
+			</form>
+		</div>
 
 	</div>
-	<form>
-		<input class="form-control" id="txboxRecherche" name="txboxRecherche"
-			[(ngModel)]='keyword.keyword' type="text" placeholder="Recherche">
-		<button [routerLink]="['/resultat']"
-			[queryParams]="{ keyword: keyword.keyword }" class="btn btn-default">Rechercher</button>
-	</form>
+
 </nav>
