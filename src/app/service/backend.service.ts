@@ -83,9 +83,17 @@ export class BackendService {
   }
 
   updateBook(bookVM: BookVM): Observable<any> {
-    console.log('=========uavant update=======');
     console.log(bookVM);
     return this.http.post<any>('http://localhost:8080/ProjetFinal/book/update', bookVM, httpOptions)
+      .pipe(
+      retry(3),
+      catchError(this.handleError)
+      );
+  }
+
+  deleteBook(id: number): Observable<any> {
+    console.log(id);
+    return this.http.delete<any>('http://localhost:8080/ProjetFinal/book/delete/' + id, httpOptions)
       .pipe(
       retry(3),
       catchError(this.handleError)

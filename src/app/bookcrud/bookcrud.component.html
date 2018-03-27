@@ -32,8 +32,9 @@
 				<button class="btn btn-info" [routerLink]="['/bookdetails']"
 					[queryParams]="{ id: book.isbn}">Détails</button>
 				<button class="btn btn-primary" [routerLink]="['/updatebook']"
-					[queryParams]="{ id: book.isbn}">MàJ</button>
-				<button class="btn btn-danger">Supprimer</button>
+					[queryParams]="{ id: book.isbn}">MaJ</button>
+				<button class="btn btn-danger" (click)='deleteBook(book.isbn)'>Supprimer</button>
+				
 			</td>
 		</tr>
 	</table>

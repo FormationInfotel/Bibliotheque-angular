@@ -65,9 +65,6 @@ export class UpdatebookComponent implements OnInit {
   }
 
 
-
-
-
   ngOnInit() {
   }
 

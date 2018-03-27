@@ -68,4 +68,17 @@ export class BookcrudComponent implements OnInit {
     );
   }
 
+  deleteBook(id) {
+    this.backService.deleteBook(id).subscribe(
+      data => {
+        this.backService.handleData(data);
+        if (data.payload) {
+          this.router.navigate(['/book']);
+        }
+      },
+      error => {
+        console.error(error.message);
+      }
+    );
+  }
 }
