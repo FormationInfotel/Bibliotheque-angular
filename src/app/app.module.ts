@@ -27,10 +27,10 @@ import {DatashareService} from './service/datashare.service';
 import {CommonModule} from '@angular/common';
 
 import {MessageDirective} from './directives/message.directive';
-import { BooksComponent } from './books/books.component';
-import { BookdetailsComponent } from './bookdetails/bookdetails.component';
-import { MemberdetailsComponent } from './memberdetails/memberdetails.component';
-import { UpdatebookComponent } from './updatebook/updatebook.component';
+import {BooksComponent} from './books/books.component';
+import {BookdetailsComponent} from './bookdetails/bookdetails.component';
+import {MemberdetailsComponent} from './memberdetails/memberdetails.component';
+import {UpdatebookComponent} from './updatebook/updatebook.component';
 
 
 
@@ -55,7 +55,7 @@ import { UpdatebookComponent } from './updatebook/updatebook.component';
     BookdetailsComponent,
     MemberdetailsComponent,
     BorrowvalidationComponent,
-    UpdatebookComponent
+    UpdatebookComponent,
     // HttpClientModule
   ],
   imports: [

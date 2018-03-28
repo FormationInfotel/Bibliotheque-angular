@@ -10,7 +10,7 @@
 						value="{{bookVM.isbn}}" [(ngModel)]='bookVM.isbn' disabled>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Title</label> <input
+					<label class="control-label col-lg-2">Titre</label> <input
 						name="bookVM.book_title" type="text" class="form-control"
 						value="{{bookVM.book_title}}" [(ngModel)]='bookVM.book_title'>
 				</div>
@@ -21,24 +21,24 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Price</label> <input
-						name="bookVM.book_price" type="text" class="form-control"
+					<label class="control-label col-lg-2">Prix</label> <input
+						name="bookVM.book_price" type="number" class="form-control"
 						[(ngModel)]='bookVM.book_price'>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Date of Publication</label> <input
+					<label class="control-label col-lg-2">Date de publication</label> <input
 						name="bookVM.publication_date" type="text" class="form-control"
 						[(ngModel)]='bookVM.publication_date'>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Popular</label> <input
+					<label class="control-label col-lg-2">Populaire</label> <input
 						id="popular_book" name="popular_book" type="text"
 						class="form-control" value="{{bookVM.popular_book}}">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Author</label>
+					<label class="control-label col-lg-2">Auteur</label>
 					<!--  -->
 					<select name="author.author_id" [(ngModel)]='bookVM.book_authorId'>
 						<option *ngFor="let author of listAuthor"
@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Category</label>
+					<label class="control-label col-lg-2">Catégorie</label>
 					<!--  -->
 					<select name="category.category_id"
 						[(ngModel)]='bookVM.book_categoryId'>
@@ -58,7 +58,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Book's Editor</label>
+					<label class="control-label col-lg-2">Éditeur</label>
 					<!--  -->
 					<select name="editor.editor_id" [(ngModel)]='bookVM.book_editorId'>
 						<option *ngFor="let editor of listEditor"
@@ -67,7 +67,7 @@
 				</div>
 
 				<div class="form-group">
-					<button (click)="updateBook()" class="btn btn-primary">Update</button>
+					<button (click)="updateBook()" class="btn btn-primary">Enregistrer</button>
 				</div>
 			</fieldset>
 		</form>

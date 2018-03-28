@@ -1,10 +1,10 @@
-<div class="jumbotron text-center">
+﻿<div class="jumbotron text-center">
 	<div class="container">
 		<div class="jumbotron-heading">
 			<h1 class="display-4">Gestion des membres</h1>
 			<br>
 			<form>
-				<button class="btn btn-primary" [routerLink]="['/registration']">Create</button>
+				<button class="btn btn-primary" [routerLink]="['/registration']">Nouveau</button>
 			</form>
 		</div>
 	</div>
@@ -28,8 +28,8 @@
 			<td>{{member.library_name}}</td>
 			<td>{{member.member_address}}</td>
 			<td>
-				<button class="btn btn-info" [routerLink]="['/memberdetails']" [queryParams]="{ id: member.member_id}">Détail</button>
-				<button class="btn btn-primary">MàJ</button>
+				<button class="btn btn-info" [routerLink]="['/memberdetails']" [queryParams]="{ id: member.member_id}">Détails</button>
+				<button class="btn btn-primary">MaJ</button>
 				<button class="btn btn-danger">Supprimer</button>
 			</td>
 		</tr>

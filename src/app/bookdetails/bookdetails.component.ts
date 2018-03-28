@@ -7,6 +7,7 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {CommonModule} from '@angular/common';
 import {Subscription} from 'rxjs';
+import {BASE_URL} from '../app-constants';
 
 
 @Component({
@@ -18,7 +19,7 @@ import {Subscription} from 'rxjs';
 export class BookdetailsComponent implements OnInit {
 
   bookVM: BookVM;
-
+  private URL: string = BASE_URL;
   listResult: any;
   id: any;
   sub: Subscription;
@@ -51,7 +52,6 @@ export class BookdetailsComponent implements OnInit {
         if (data.payload) {
           console.log(data.payload);
           this.bookVM = data.payload;
-          //return this.listResult;
         }
       },
       error => {

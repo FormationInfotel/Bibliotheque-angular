@@ -1,28 +1,29 @@
-<div class="jumbotron jumbotron-fluid">
+﻿<div class="jumbotron jumbotron-fluid">
 	<div class="container">
 		<form>
 			<fieldset>
-				<legend>Sign up</legend>
+				<legend>Inscription</legend>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Firstname</label> <input
+					<label class="control-label col-lg-2">Nom</label> <input
 						id="txboxFirstname" type="text" class="form-control"
 						name="txboxFirstname" [(ngModel)]='memberVM.member_firstname'
-						placeholder="Firstname">
+						placeholder="Nom">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Lastname</label> <input
+					<label class="control-label col-lg-2">Prénom</label> <input
 						id="txboxLastname" type="text" class="form-control"
 						name="txboxLastname" [(ngModel)]='memberVM.member_lastname'
-						placeholder="Lastname">
+						placeholder="Prénom">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Postal address</label> <input
+					<label class="control-label col-lg-2">Adresse</label> <input
 						id="txboxAddress" type="text" class="form-control"
 						name="txboxAddress" [(ngModel)]='memberVM.member_address'
-						placeholder="Address">
+						placeholder="Adresse">
 				</div>
+				<br>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Member's Library</label>
+					<label class="control-label col-lg-2">Librairie</label>
 					<!--  -->
 					<select name="library.library_code" [(ngModel)]='memberVM.member_LibraryId'>
 						<option *ngFor="let library of listeLibrary"
@@ -38,16 +39,16 @@
 
 
 				<div class="form-group">
-					<label class="control-label col-lg-2">Password</label> <input
+					<label class="control-label col-lg-2">Mot de passe</label> <input
 						id="txtboxPswd1" type="text" class="form-control"
 						name="txtboxPswd1" [(ngModel)]='memberVM.member_password'
-						placeholder="Password">
+						placeholder="Mot de passe">
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2">Password confirmation</label>
+					<label class="control-label col-lg-2">Confirmation</label>
 					<input id="txtboxPswd2" type="text" class="form-control"
 						name="txtboxPswd25" [(ngModel)]='memberVM.member_password'
-						placeholder="Password">
+						placeholder="Mot de passe">
 				</div>
 				<!-- 				<div class="form-group"> -->
 				<!-- 					<label class="control-label col-lg-2">Administrateur ?</label> <input -->
@@ -56,7 +57,7 @@
 				<!-- 						placeholder="Password"> -->
 				<!-- 				</div> -->
 				<div class="form-group">
-					<button (click)="newMember()" class="btn btn-primary">Register</button>
+					<button (click)="newMember()" class="btn btn-primary">Enregistrer</button>
 				</div>
 			</fieldset>
 		</form>

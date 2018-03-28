@@ -40,18 +40,21 @@ export class MemberdetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
 
-   this.sub = this.activatedRoute
+    this.sub = this.activatedRoute
       .queryParams
       .subscribe(params => {
         console.log(typeof (+params.id));
         this.id = + params.id;
         console.log(this.id);
+        this.getMembre(this.id);
+        console.log('=======init=======');
+        console.log(this.memberVM);
       });
 
-    this.memberVM = this.getMembre(this.id);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 
 
@@ -61,14 +64,16 @@ export class MemberdetailsComponent implements OnInit {
         this.backService.handleData(data);
         if (data.payload) {
           console.log(data.payload);
-          this.listeMembres = data.payload;
-          return this.listeMembres;
+          console.log('=======avant=======');
+          console.log(this.memberVM);
+          this.memberVM = data.payload;
+          console.log('=======apres=======');
+          console.log(this.memberVM);
         }
       },
       error => {
         console.log('error !!!!!');
         console.error(error.message);
-        this.messageService.displayErrorMessage(error.message);
       }
     );
   }

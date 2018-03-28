@@ -5,6 +5,7 @@ import {MessageService} from '../service/message.service';
 import {DatashareService} from '../service/datashare.service';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {BASE_URL} from '../app-constants';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class AccueilComponent implements OnInit {
     author_lastname: null,
     author_firstname: null,
     editor_name: null,
-  category_name: null,
+    category_name: null,
 
     book_authorId: null,
     book_editorId: null,
@@ -35,7 +36,7 @@ export class AccueilComponent implements OnInit {
   };
 
 
-
+  private URL: string = BASE_URL;
   listeLivresRecom: any;
 
 

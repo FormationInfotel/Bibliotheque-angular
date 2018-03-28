@@ -6,6 +6,7 @@ import {DatashareService} from '../service/datashare.service';
 import {MessageService} from '../service/message.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {BASE_URL} from '../app-constants';
 
 @Component({
   selector: 'app-resultat',
@@ -21,7 +22,7 @@ export class ResultatComponent implements OnInit {
   listeLivresRech: any;
   sub: any;
   compteur: number;
-
+  private URL: string = BASE_URL;
 
 
   constructor(private backService: BackendService,
@@ -36,12 +37,9 @@ export class ResultatComponent implements OnInit {
       .queryParams
       .subscribe(params => {
         this.keyword.keyword = params.keyword;
+        this.listeLivresRech = this.getBooksByKeyword(this.keyword.keyword);
       });
 
-    this.listeLivresRech = this.getBooksByKeyword(this.keyword.keyword);
-
-    console.log('liste' + this.listeLivresRech);
-    console.log(this.getBooksByKeyword(this.keyword.keyword));
 
   }
 
@@ -55,7 +53,6 @@ export class ResultatComponent implements OnInit {
         if (data.payload) {
           this.listeLivresRech = data.payload;
           this.compteur = this.listeLivresRech.length;
-          console.log('cpt' + this.compteur);
           return this.listeLivresRech;
         }
       },

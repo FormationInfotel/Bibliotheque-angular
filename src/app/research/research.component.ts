@@ -7,24 +7,22 @@ import {Router} from '@angular/router';
 
 
 @Component({
- selector: 'app-research',
- templateUrl: './research.component.html',
- styleUrls: ['./research.component.css']
+  selector: 'app-research',
+  templateUrl: './research.component.html',
+  styleUrls: ['./research.component.css']
 })
 export class ResearchComponent implements OnInit {
 
- keyword: ResearchVM = {
-   keyword: ''
- };
+  keyword: ResearchVM = {
+    keyword: ''
+  };
 
- constructor(
-   private backService: BackendService,
-   private messageService: MessageService,
-   private dss: DatashareService,
-   private router: Router) {}
+  constructor(
+    private backService: BackendService,
+    private messageService: MessageService,
+    private dss: DatashareService,
+    private router: Router) {}
 
- ngOnInit() {
- }
-
-
+  ngOnInit() {
+  }
 }

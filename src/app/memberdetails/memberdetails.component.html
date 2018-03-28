@@ -1,41 +1,25 @@
 <div class="album py-5 bg-light">
 	<div class="container">
-		<h1 style="text-align: center">Détails du membre ID : {{id}}</h1>
+		<h1 style="text-align: center">Détails du membre :
+			{{memberVM.member_lastname}} {{memberVM.member_firstname}}</h1>
 		<div class="row">
-			<div *ngFor="let member of listeMembres">
-				<div style="display: inline-flex; justify-content: center;">
-<!-- 					<div class="card-columns" -->
-<!-- 						style="padding: 50 px; display: inline-block"> -->
-<!-- 						<div class="col-md-4" style="max-height: 225px; max-width: 400px;"> -->
-<!-- 							<div class="card mb-4 box-shadow"> -->
-
-								<div class="card-body">
-									<p class="card-text">
-										<strong>ID : </strong>{{member.member_id}}
-									</p>
-									<p class="card-text">
-										<strong>Nom : </strong>{{member.member_lastname}}
-									</p>
-									<p class="card-text">
-										<strong>Prénom : </strong>{{member.member_firstname}}
-									</p>
-									<p class="card-text">
-										<strong>Email : </strong>{{member.member_email}}
-									</p>
-									<p class="card-text">
-										<strong>Adresse : </strong>{{member.member_address}}
-									</p>
-									<p class="card-text">
-										<strong>Bibliothèque : </strong>{{member.library_name}}
-									</p>
-									<!-- 						<p class="card-text"><strong>Mot de passe : </strong>{{member.member_password}}</p> -->
-									<!-- 						<p class="card-text">Is admin : {{member.isMemberAdmin}}</p> -->
-									<div class="d-flex justify-content-between align-items-center">
-									</div>
-								</div>
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+			<div style="display: inline-flex; justify-content: center;">
+				<div class="card-body">
+					<p class="card-text">
+						<strong>Nom : </strong>{{memberVM.member_lastname}}
+					</p>
+					<p class="card-text">
+						<strong>Prénom : </strong>{{memberVM.member_firstname}}
+					</p>
+					<p class="card-text">
+						<strong>Email : </strong>{{memberVM.member_email}}
+					</p>
+					<p class="card-text">
+						<strong>Adresse : </strong>{{memberVM.member_address}}
+					</p>
+					<p class="card-text">
+						<strong>Bibliothèque : </strong>{{memberVM.library_name}}
+					</p>
 				</div>
 			</div>
 		</div>

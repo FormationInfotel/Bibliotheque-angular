@@ -4,7 +4,6 @@
 		<hr>
 		<br>
 		<form>
-			<!-- method="POST" action="${context}/recherche"> -->
 			<br>
 			<div>
 				<label class="form-check-label" for="defaultCheck1">Pour
@@ -19,7 +18,9 @@
 			</div>
 			<br> <br>
 			<div>
-				<button [routerLink]="['/resultat']" [queryParams]="{ keyword: keyword.keyword }" class="btn btn-default">Rechercher</button>
+				<button [routerLink]="['/resultat']"
+					[queryParams]="{ keyword: keyword.keyword }"
+					class="btn btn-default">Rechercher</button>
 			</div>
 		</form>
 	</div>

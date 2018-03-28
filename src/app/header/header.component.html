@@ -16,20 +16,18 @@
 					class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item active"><a class="nav-link" href="/books">Liste
-					Livre<span class="sr-only">(current)</span>
+					des livres<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link" href="/login">Login
+			<li class="nav-item active"><a class="nav-link" href="/login">Se connecter
 					<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"> Admin </a>
+				aria-expanded="false"> Administration </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="/member">Membre</a> <a
 						class="dropdown-item" href="/book">Livre</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="/borrow">Emprunt</a>
 				</div></li>
 		</ul>
 	</div>
@@ -41,7 +39,7 @@
 				placeholder="Recherche">
 			<button [routerLink]="['/resultat']"
 				[queryParams]="{ keyword: keyword.keyword }"
-				class="btn btn-outline-success my-2 my-sm-0">Rechercher</button>
+				class="btn btn-outline-info my-2 my-sm-0">Rechercher</button>
 		</form>
 	</div>
 </nav>

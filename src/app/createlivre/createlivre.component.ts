@@ -21,7 +21,7 @@ export class CreatelivreComponent implements OnInit {
     book_description: '',
     book_price: null,
     publication_date: '',
-    image_path: '',
+    image_path: '0.png',
     popular_book: false,
     author_lastname: '',
     author_firstname: '',
